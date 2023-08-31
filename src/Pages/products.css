@@ -1,0 +1,235 @@
+.Products{
+
+    padding:10px 15% ;
+}
+.Product-view{
+    @apply flex  justify-between flex-wrap gap-5 ;
+}
+
+
+.Products-tag{
+    font-size:clamp(0px,5vw,40px);
+    font-weight:600;
+    margin-top:70px;
+    margin-bottom:30px;
+}
+.Big-Product{
+    height:35vw;
+    background:url("Images/Big_Banner.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+  background-position: center center;
+  padding-top:10%;
+    
+    @apply  w-full rounded-lg mt-20;
+}
+.Big-Product>img{
+
+    @apply rounded-lg;
+}
+.Big-Product>div{
+  height:70%;
+    @apply flex flex-col justify-between items-center ;
+}
+.Big-Product>div>button{
+font-size:clamp(0px,3vw,20px);
+background:white;
+width:clamp(0px,55%,240px);
+padding:2%;
+font-weight:500;
+@apply flex justify-evenly items-center;
+}
+.Big-Product>div>p{
+    width:20ch;
+    font-size:clamp(0px,500%,90px);
+    font-weight:700;
+    @apply text-center text-white;
+    
+}
+.Foot-banner{
+    height:clamp(0px,50vh,400px);
+    background:url("Images/Furnitures.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;    
+   background-position: center center;
+   @apply p-2 flex items-center flex-col justify-evenly rounded-lg;
+}
+.Foot-banner-txt>p{
+    
+    
+    font-size:clamp(0px,300%,90px);
+    width:25ch;
+    font-weight:500;
+    @apply text-white text-center;
+    
+}
+.Foot-banner-txt{
+    height:70%;
+    @apply flex flex-col justify-between items-center ;
+
+}
+.Foot-banner-txt>button{
+    font-size:clamp(0px,3vw,20px);
+    background:white;
+    width:clamp(0px,50%,240px);
+    padding:2%;
+    font-weight:500;
+    @apply flex justify-evenly items-center;
+}
+.Foot-banner-Limited{
+    width:clamp(0px,30%,120px);
+    margin-left:2%;
+    font-size:clamp(0px,2.5vw,15px);
+    font-weight:500;
+    padding:5px ;
+
+@apply text-white bg-black flex justify-center rounded-lg ;
+}
+@media(max-width:1650px){
+  
+    .Big-Product>div>p{
+        width:20ch;
+        font-size:clamp(0px,350%,90px);
+        font-weight:700;
+        @apply text-center text-white;
+        
+    }
+}
+@media(max-width:1081px){
+    .Product-view{
+        @apply ml-0 ;
+    }
+    .Big-Product>div>p{
+        width:20ch;
+        font-size:clamp(0px,300%,90px);
+        font-weight:700;
+        @apply text-center text-white;
+        
+    }
+    .Foot-banner-txt>p{
+    
+    
+        font-size:clamp(0px,200%,90px);
+        
+    }
+}
+
+@media(max-width:850px){
+
+    .Foot-banner-txt>button{
+        font-size:clamp(0px,4vw,20px);
+        background:white;
+        width:clamp(0px,55%,240px);
+        padding:2% 0px;
+        font-weight:500;
+        @apply flex justify-evenly items-center;
+    }
+    .Foot-banner-txt>button>img{
+        width:clamp(0px,15%,240px);
+        padding:5% 0px;
+    }
+    .Products-tag{
+        font-size:clamp(0px,5vw,40px);
+        font-weight:600;
+        margin:30px 0px;
+    }
+    .Big-Product>div>button{
+        font-size:clamp(0px,3vw,20px);
+        background:white;
+        width:clamp(0px,45%,150px);
+        padding:clamp(0px,3%,10px);
+        font-weight:500;
+        @apply flex justify-evenly items-center;
+        }
+    .Big-Product>div>button>img{
+        width:12%;
+        }
+    .Big-Product{
+        width:100%;
+        height:60vw;
+        @apply mb-20;
+    }
+    .Big-Product>div>p{
+        width:20ch;
+        font-size:clamp(0px,250%,90px);
+        font-weight:700;
+        @apply text-center text-white;
+        
+    }
+    .Products{
+
+        padding:0px 5%;
+    }
+}
+@media(max-width:650px){
+    .Foot-banner-txt>button{
+        font-size:clamp(0px,3vw,20px);
+        width:clamp(0px,50%,240px);
+        padding:2% 0px;
+    }
+
+    .Foot-banner{
+        height:clamp(0px,40vh,200px);
+    }
+    .Foot-banner-Limited{
+        width:clamp(0px,35%,120px);
+        font-size:clamp(0px,3.5vw,15px);
+    
+    @apply text-white bg-black flex justify-center rounded-md ;
+    }
+
+    .Foot-banner-txt{
+        height:50%;
+    
+    }
+    .Foot-banner-txt>p{
+    
+    
+        font-size:clamp(0px,100%,90px);
+        
+    }
+    .Big-Product>div>p{
+        width:20ch;
+        font-size:clamp(0px,200%,90px);
+        font-weight:700;
+        @apply text-center text-white;
+        
+    }
+    .Big-Product{
+        width:100%;
+        height:70vw;
+        @apply mb-20;
+    }
+   
+}
+@media(max-width:500px){
+    .Big-Product>div>p{
+        width:20ch;
+        font-size:clamp(0px,160%,90px);
+        font-weight:700;
+        @apply text-center text-white;
+        
+    }
+    .Big-Product{
+        width:100%;
+        height:70vw;
+        @apply mb-20;
+    }
+   
+}
+@media(max-width:360px){
+    .Big-Product>div>p{
+        width:20ch;
+        font-size:clamp(0px,140%,90px);
+        font-weight:700;
+        @apply text-center text-white;
+        
+    }
+    .Big-Product{
+        width:100%;
+        height:70vw;
+        @apply mb-20;
+    }
+   
+}

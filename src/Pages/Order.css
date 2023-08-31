@@ -1,0 +1,76 @@
+.Orders-frame{
+    padding:20px 15%;
+    @apply mt-1 h-screen justify-center ;
+}
+.Orders-frame>div{
+    min-height:140px;
+   
+}
+.Orders{
+    width:clamp(0px,100%,1000px);
+  
+    @apply  border-zinc-200 border-2 rounded-xl shadow-md;
+}
+.Orders-title{
+    width:100%;
+
+        display: grid;
+        grid-template-columns: 1fr .5fr .5fr 1fr 1fr 1fr;
+        @apply border-b-2 gap-4 px-2;
+       
+      
+}
+.Orders-title>h3{
+    font-size:clamp(0px,3vw,20px);
+    font-weight:600;
+    @apply mb-3;
+    
+}
+
+.Orders-Item{
+    display: grid;
+    grid-template-columns: 1fr .5fr .5fr 1fr 1fr 1fr;
+    @apply  gap-4 mt-2 px-2 mb-2;
+}
+.Orders-Item>p{
+    font-weight:500;
+    font-size:clamp(0px,2vw,15px);
+    color:#7E7E7E;
+    @apply flex justify-start  items-center ;
+}
+.Orders-Item>img {
+   min-width:clamp(0px,100%,200px);
+   
+    @apply rounded-lg ;
+}
+@media (max-width:950px){
+    
+    .Orders-title>h3{
+    
+        font-size:clamp(0px,4.5vw,20px);
+    
+    }
+    .Orders-frame{
+        padding:20px 5%;
+        @apply mt-1;
+    }
+    .Orders-Item>p{
+        font-weight:500;
+        font-size:clamp(0px,3vw,20px);
+        color:#7E7E7E;
+        @apply flex justify-start  items-center;
+    }
+    .Orders-Item{
+        display: grid;
+        grid-template-columns: 1fr 1.5fr .5fr 1fr 1fr 1fr;
+        @apply  gap-4 mt-2 px-2 mb-2;
+    }
+    .Orders-title{
+        width:100%;
+    
+            display: grid;
+            grid-template-columns: 1fr 1.5fr .5fr 1fr 1fr 1fr;
+            @apply border-b-2 gap-4 px-2;
+           
+      
+}}

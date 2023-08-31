@@ -1,0 +1,19 @@
+.Cart{
+  background:rgba(0,0,0,.4);
+  width:clamp(0px,50vw,500px);
+  right:-900px;
+  z-index:100;
+  @apply h-full fixed top-0  p-3 duration-1000;
+}
+
+.Cart_On{
+  right:0px;
+}
+.Cart_Off{
+  right:-900px;
+}
+.Cart-Img,.Cart-Price{
+
+  width:clamp(0px,100%,300px);
+  @apply   rounded-3xl;
+}

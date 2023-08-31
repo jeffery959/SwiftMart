@@ -1,0 +1,193 @@
+
+
+
+.SinglePage{
+    padding:0px 15%;
+    height:90vh;
+    @apply w-full  mt-1 mb-60 flex justify-center items-center ;
+}
+
+.SinglePage-View{
+
+    @apply  w-full h-full flex justify-start items-center ;
+}
+.SinglePage-View>img{
+    width:clamp(0px,55%,560px);
+    height:clamp(0px,75%,619px);
+    @apply object-cover rounded-lg mr-20;
+}
+.Star{
+    font-weight:500;
+    font-size:clamp(0px,5vw,15px);
+    width:100%;
+    
+    letter-spacing: 1px;
+}
+.Rating-Star{
+    
+    width:100%;
+    margin-right:5px;
+}
+
+.SinglePage-View-txt{
+    width:100%;
+    height:clamp(0px,75%,619px);
+    @apply flex flex-col justify-between ;
+}
+.SinglePage-View-txt_price{
+    color:#0969AD;
+    margin:20px 0px;
+}
+.SinglePage-View-txt>div{
+    width:100%;
+}
+.SinglePage-View-txt>div>p{
+    
+    font-weight:500;
+    font-size:clamp(0px,1vw,20px);
+    color:#9F9F9F;
+    width:45ch;
+    
+    margin-top:clamp(0px,10%,20px);
+    ;}
+    .SinglePage-View-txt>div>h3{
+        font-weight:700;
+        font-size:clamp(0px,3vw,98px);
+    }
+    .SinglePage-View-txt>div>h4{
+        word-spacing: 4px;
+    font-weight:600;
+    font-size:clamp(0px,3vw,30px);
+}
+
+.Btn{
+    @apply flex justify-between pr-48;
+}
+.Btn-1,.Btn>button{
+    height:clamp(0px,5vh,20px);
+    padding:5% 8%;
+    font-size:clamp(0px,3vw,15px);
+    font-weight:700;
+    width:40%;
+    @apply flex  border-2 border-black justify-around  items-center;
+}
+.Btn>button{
+    background:#0969AD;
+    color:white;
+    @apply border-none;
+}
+
+@media(max-width:1288px){
+    .Btn{
+        @apply flex justify-between pr-0;
+    }
+    .SinglePage-View-txt{
+        width:40%;
+        height:clamp(0px,75%,619px);
+        @apply flex flex-col justify-between ;
+    }
+    .SinglePage-View>img{
+        width:clamp(0px,55%,460px);
+        height:clamp(0px,75%,619px);
+        @apply object-cover rounded-lg mr-0;
+    }
+    .Btn-1,.Btn>button{
+        height:clamp(0px,8vh,45px);
+        padding:5% 8%;
+        font-size:clamp(0px,3vw,15px);
+        font-weight:600;
+        width:45%;
+        @apply flex  border-2 border-black justify-around  items-center;
+    }
+    .SinglePage-View-txt>div>h3{
+        font-weight:700;
+        font-size:clamp(0px,4vw,40px);
+    }
+    .SinglePage-View-txt>div>p{
+        width:100%;
+        font-size:clamp(0px,2vw,25px);
+    ;}
+    .SinglePage-View-txt>div>h4{
+      
+        font-size:clamp(0px,2.5vw,30px);
+    }
+    .SinglePage-View{
+
+        @apply   justify-between  ;
+    }
+}
+@media(max-width:850px){
+    .SinglePage-View-txt_price{
+        color:#0969AD;
+        margin:10px 0px;
+    }
+    .SinglePage-View-txt>div>.Star{
+        @apply hidden
+    }
+    .Rating-Star{
+    
+        width:70%;
+    }
+    .SinglePage-View{
+        @apply  flex flex-col  ;
+    }
+    .SinglePage-View>img{
+        width:100%;
+        height:clamp(0px,45%,619px);
+        @apply object-cover rounded-lg;
+    }
+   
+
+    .SinglePage-View-txt{
+        width:100%;
+        
+    height:60%;
+    padding-bottom:10px;
+    }
+    .SinglePage-View-txt_price{
+        @apply flex items-center justify-between
+    }
+    .SinglePage-View-txt_price>.Mobile{
+        display:block;
+    }
+    .SinglePage-View-txt>div>h3{
+   
+        font-size:clamp(0px,7vw,30px);
+    }
+    .SinglePage-View-txt>div>h4{
+       
+        margin:5px 0px;
+        font-size:clamp(0px,5vw,20px);
+    }
+    .SinglePage-View-txt>div>p{
+
+        font-size:clamp(0px,4vw,15px);
+    ;}
+    .SinglePage-View-txt>div{
+        width:100%;
+        
+    }
+    .SinglePage{
+        padding:0px 5%;
+    }
+    
+
+}
+@media(max-width:650px){
+    .Rating-Star{
+    
+        width:70%;
+        height:20px;
+    }
+    
+
+}
+@media(max-width:350px){
+    .Rating-Star{
+    
+        width:70%;
+        height:10px;
+    }
+    
+
+}

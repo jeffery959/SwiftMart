@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Python"
+		},
+		{
+			"path": "../Personal_project/shopme"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "SwiftMart"
+	}
+}
