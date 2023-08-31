@@ -76,6 +76,12 @@
       
 }}
 @media (max-width:550px){
+
+    .Orders-title>h3{
+    
+        font-size:clamp(0px,3vw,10px);
+    
+    }
     .Orders-Item>p{
         font-size:clamp(0px,2.1vw,20px);
     }
