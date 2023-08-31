@@ -21,18 +21,6 @@ const [atHome,setAtHome] = useState(false)
 
 
 
-const handleScroll = useCallback(()=>{
-
-      if (window.scrollY < 100) {
-        setNavbarBgColor('bg-none text-white');
-        setTxtColor('text-white');
-      } else {
-        setNavbarBgColor('bg-white text-black');
-        setTxtColor('text-black');
-      }
-     
-    
-},[])
 
     
  useEffect(() => {
@@ -53,13 +41,6 @@ const handleScroll = useCallback(()=>{
 },[window.scrollY,location.pathname,atHome,isToggled]);
 
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [handleScroll]);
 
 
 
