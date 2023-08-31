@@ -39,9 +39,10 @@
     @apply flex justify-start  items-center ;
 }
 .Orders-Item>img {
-   min-width:clamp(0px,100%,200px);
+   min-width:clamp(0px,100%,100px);
+   height:100px;
    
-    @apply rounded-lg ;
+    @apply rounded-lg object-cover;
 }
 @media (max-width:950px){
     
@@ -70,6 +71,25 @@
     
             display: grid;
             grid-template-columns: 1fr 1.5fr .5fr 1fr 1fr 1fr;
+            @apply border-b-2 gap-4 px-2;
+           
+      
+}}
+@media (max-width:550px){
+    .Orders-Item>p{
+        font-size:clamp(0px,2.1vw,20px);
+    }
+    .Orders-Item{
+        display: grid;
+        grid-template-columns: 2.5fr 1.5fr .5fr .5fr .5fr .5fr;
+        @apply  gap-4 mt-2 px-2 mb-2;
+    }
+
+    .Orders-title{
+        width:100%;
+    
+            display: grid;
+            grid-template-columns: 2.5fr 1.5fr .5fr .5fr .5fr .5fr;
             @apply border-b-2 gap-4 px-2;
            
       
