@@ -15,7 +15,7 @@
 }
 .Big-Product{
     height:35vw;
-    background:url("Images/Big_Banner.png");
+    background:url("/Images/Big_Banner.png");
     background-size: cover;
     background-repeat: no-repeat;
     
