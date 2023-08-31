@@ -37,7 +37,7 @@ const Products = () => {
   
   )
 }
-    <div className=' Foot-banner mt-20'>
+    <div className=' Foot-banner mt-20 ' style={{backgroundImage:`url("/Images/Furnitures.jpg")`}}>
       <div className='w-full '>
 
       <div className='Foot-banner-Limited '>
@@ -120,7 +120,7 @@ const Product_Deck = ({Deck})=>{
 const BigProduct =()=>{
   
   return(
-  <div className=' Big-Product mb-0'>
+  <div className=' Big-Product mb-0' style={{backgroundImage:`url("/Images/Big_Banner.png")`}}>
         <div>
 
         <p>Uprade your style with our Casual wears</p>

@@ -15,7 +15,7 @@
 }
 .Big-Product{
     height:35vw;
-    background:url("/Images/Big_Banner.png");
+    
     background-size: cover;
     background-repeat: no-repeat;
     
@@ -49,7 +49,6 @@ font-weight:500;
 }
 .Foot-banner{
     height:clamp(0px,50vh,400px);
-    background:url("Images/Furnitures.jpg");
     background-size: cover;
     background-repeat: no-repeat;    
    background-position: center center;
