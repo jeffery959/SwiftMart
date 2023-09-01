@@ -49,3 +49,23 @@
       @apply duration-200 rounded-lg;
    }
 }
+@media (max-width:850px){
+   .ItemContainer{
+      width:clamp(0px,25vw,200px);
+      height:clamp(0px,40vw,300px);
+   }
+  
+
+}
+@media (max-width:850px){
+   .ItemContainer{
+      width:clamp(0px,25vw,200px);
+      height:clamp(0px,40vw,300px);
+   }
+   .ItemContainer_Info>div{
+      width:clamp(0px,30%,60px);
+      @apply duration-200 rounded-sm;
+   }
+  
+
+}

@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 import { useSelector } from 'react-redux';
+import Checkout from './Checkout';
 
 const Products = () => {
 
@@ -16,7 +17,7 @@ const Products = () => {
   return (
     <div className=' Products  '>
       
-      <Swiper   slidesPerView={1}
+      <Swiper   slidesPerView={.999}
        loop={true}
         pagination={{
           clickable: true,
@@ -50,7 +51,6 @@ const Products = () => {
 <button><p>Explore Now</p> <img src="Logo\arrow.svg" alt="" className='ml-2' /></button>
 </div>
     </div>
-   
     </div>
   )
 }

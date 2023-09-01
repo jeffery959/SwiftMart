@@ -1,16 +1,22 @@
-import {useContext} from 'react'
+
 import { Link } from 'react-router-dom'
 import "./Items.css"
-import {App_Context} from '../App'
-const Item = ({item,Deck}) => {
-  const {state,dispatch}=useContext(App_Context);
 
-  const {price,name,img,id}=item
-   const modal_Pop=()=>{
-    dispatch({type:"Show_modal"});
-   setTimeout(()=> dispatch({type:"Hide_modal"}), 3000);
-  }
+import { useSelector ,useDispatch} from 'react-redux';
+import { AddCart,ToggleModal } from '../app/features/productSlice'
+
+const Item = ({item,Deck}) => {
   
+  const dispatch = useDispatch()
+  const {price,name,img,id}=item
+    const AddToCart =()=>{
+    dispatch(AddCart(item))
+    dispatch(ToggleModal())
+    setTimeout(()=>{
+    
+      dispatch(ToggleModal())
+    },3000)
+  } 
   return (
     <div className='ItemContainer '>
       <Link to={`/products/${Deck.Id}/${id}`}  >
@@ -22,7 +28,7 @@ const Item = ({item,Deck}) => {
          <p className='ItemContainer_Info_Title'>{name}</p>
          <p className='ItemContainer_Info_Price'>${price}</p>
         </div>
-        <div className='flex justify-center ItemContainer_Info_Icon '>
+        <div className='flex justify-center ItemContainer_Info_Icon ' onClick={()=> AddToCart()}>
 
          <img src="Logo\Add-Cart.svg" alt="" />
         </div>

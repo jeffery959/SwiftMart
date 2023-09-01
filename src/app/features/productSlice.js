@@ -7,10 +7,10 @@ Category:"Featured product",
 Unit:[
  
   
-  {id:0,price:249.99, qty:1,name:"Suit",img:"/Images/Product-img/Suit-guy.jpg"},
-  {id:1,price:55, qty:1,name:"Sweater",img:"/Images/Product-img/Gray-Shirt.jpg"},
-  {id:2,price:34.99, qty:1,name:"Pants",img:"/Images/Product-img/Jeans.jpg"},
-  {id:3,price:20, qty:1,name:"Hoddy",img:"/Images/Product-img/Hoddy.jpg"},
+  {UnitId:0,id:0,price:249.99, qty:1,name:"Suit",img:"/Images/Product-img/Suit-guy.jpg"},
+  {UnitId:0,id:1,price:55, qty:1,name:"Sweater",img:"/Images/Product-img/Gray-Shirt.jpg"},
+  {UnitId:0,id:2,price:34.99, qty:1,name:"Pants",img:"/Images/Product-img/Jeans.jpg"},
+  {UnitId:0,id:3,price:20, qty:1,name:"Hoddy",img:"/Images/Product-img/Hoddy.jpg"},
 ]
 },
 {Id:1,
@@ -18,10 +18,10 @@ Unit:[
   Unit:[
   
     
-    {id:0,price:849.99, qty:1,name:"Iphone",img:"/Images/Product-img/Iphone.png"},
-    {id:1,price:1055, qty:1,name:"MacBook",img:"/Images/Product-img/MacBook.png"},
-    {id:2,price:84.99, qty:1,name:"Airpods",img:"/Images/Product-img/Airpods.jpg"},
-    {id:3,price:34.99, qty:1,name:"HeadPhones",img:"/Images/Product-img/Headphones.png"},
+    {UnitId:1,id:0,price:849.99, qty:1,name:"Iphone",img:"/Images/Product-img/Iphone.png"},
+    {UnitId:1,id:1,price:1055, qty:1,name:"Pc",img:"/Images/Product-img/Pc.jpg"},
+    {UnitId:1,id:2,price:84.99, qty:1,name:"Airpods",img:"/Images/Product-img/Airpods.jpg"},
+    {UnitId:1,id:3,price:34.99, qty:1,name:"HeadPhones",img:"/Images/Product-img/Headphones.png"},
   ]
   },
 {Id:2,
@@ -29,49 +29,228 @@ Unit:[
   Unit:[
   
     
-    {id:0,price:79.99, qty:1,name:"Nike",img:"/Images/Product-img/Color-Shoe.png"},
-    {id:1,price:55, qty:1,name:"Shoe",img:"/Images/Product-img/Sneakers.png"},
-    {id:2,price:54.99, qty:1,name:"Crocs",img:"/Images/Product-img/Crocs.png"},
-    {id:3,price:44.99, qty:1,name:"Canvas",img:"/Images/Product-img/Canvas.png"},
+    {UnitId:2,id:0,price:79.99, qty:1,name:"Nike",img:"/Images/Product-img/Color-Shoe.png"},
+    {UnitId:2,id:1,price:55, qty:1,name:"Shoe",img:"/Images/Product-img/Sneakers.png"},
+    {UnitId:2,id:2,price:54.99, qty:1,name:"Crocs",img:"/Images/Product-img/Crocs.png"},
+    {UnitId:2,id:3,price:44.99, qty:1,name:"Canvas",img:"/Images/Product-img/Canvas.png"},
   ]
   }
 ]
+
+const States=JSON.parse(localStorage.getItem("State"))
+
+console.log(States)
    
 export const productSlice = createSlice({
    name: 'product',
-  initialState:{
+  initialState:States||{
    
-    ItemList: DataBase,
+  ItemList: DataBase,
     OrderList:[
       
       {id:0,price:249.99, qty:1,name:"Suit",img:"/Images/Product-img/Suit-guy.jpg"},
       {id:1,price:1055, qty:1,name:"MacBook",img:"/Images/Product-img/MacBook.png"},
     ],
-    CartDisplay:"Cart_Off"
-
+    CartDisplay:"Cart_Off",
+    CartList:[
+      
+    ],
+    Modal:"-top-20"
 
     
 } ,
   reducers: {
+
+    ToggleModal:(state)=>{
+
+if(state.Modal==="-top-20"){
+  state.Modal="top-20"
+}else{
+  state.Modal="-top-20"
+}
+    },
     ToggleCart:(state)=>{
       console.log(state.CartDisplay)
     if(state.CartDisplay==="Cart_Off"){
       state.CartDisplay="Cart_On"
-      return
     }
     else{
       state.CartDisplay="Cart_Off"
-      return
+      
     }
-   
+    
+    localStorage.setItem("State",JSON.stringify(state))
+    return
+  },
+   AddCart:(state,action)=>{
+
+     const isIncluded = state.CartList.some(obj=>JSON.stringify(obj)===JSON.stringify(action.payload))
+  
+     if(isIncluded){
+       let newList=  state.ItemList.filter(itm=>itm.Id===action.payload.UnitId)
+    
+    const SingleItem= newList[0].Unit.map((item)=>{
+        if(item.id===action.payload.id){
+          return {...item,qty:item.qty+1}
+        }
+        else{
+          return item
+        }
+       }) 
+      const newCart= state.CartList.map((itm)=>{
+        if(itm.id===action.payload.id&&itm.UnitId===action.payload.UnitId){
+          return {...itm,qty:itm.qty+1}
+        }
+        else{
+          return itm
+        }
+       })
+       
+        
+          let ItemList =state.ItemList.map((Itm)=>{
+        if(Itm.Id===action.payload.UnitId){
+          return {...Itm,Unit:SingleItem}
+        }
+        else{
+          return Itm
+
+        }
+       }) 
+       
+       localStorage.setItem("State",JSON.stringify({...state,ItemList:ItemList,CartList:newCart}))
+       return {...state,ItemList:ItemList,CartList:newCart}
+       
+      }else{
+        state.CartList.push(action.payload) 
+        localStorage.setItem("State",JSON.stringify(state))
+        
+        
+      }
+      
+   },
+   Subtract:(state,action)=>{
+    let newList=  state.ItemList.filter(itm=>itm.Id===action.payload.UnitId)
+    
+    const SingleItem=  newList[0].Unit.map((item)=>{
+        if(item.id===action.payload.id&&item.qty>1){
+          return {...item,qty:item.qty-1}
+        }
+        else{
+          return item
+        }
+       })  
+      const newCart= state.CartList.map((itm)=>{
+        if(itm.id===action.payload.id&&itm.UnitId===action.payload.UnitId&&itm.qty>1){
+          return {...itm,qty:itm.qty-1}
+        }
+        else{
+          return itm
+        }
+       })
+       
+      let ItemList =state.ItemList.map((Itm)=>{
+        if(Itm.Id===action.payload.UnitId){
+          return {...Itm,Unit:SingleItem}
+        }
+        else{
+          return Itm
+
+        }
+       })  
+       
+       localStorage.setItem("State",JSON.stringify({...state,ItemList,CartList:newCart}))
+       return {...state,ItemList,CartList:newCart}
+   },
+   Add:(state,action)=>
+
+    {
+      let newList=  state.ItemList.filter(itm=>itm.Id===action.payload.UnitId)
+      
+      const SingleItem=  newList[0].Unit.map((item)=>{
+          if(item.id===action.payload.id){
+            return {...item,qty:item.qty+1}
+          }
+          else{
+            return item
+          }
+         })  
+        const newCart= state.CartList.map((itm)=>{
+          if(itm.id===action.payload.id&&itm.UnitId===action.payload.UnitId){
+            return {...itm,qty:itm.qty+1}
+          }
+          else{
+            return itm
+          }
+         })
+         
+        let ItemList =state.ItemList.map((Itm)=>{
+          if(Itm.Id===action.payload.UnitId){
+            return {...Itm,Unit:SingleItem}
+          }
+          else{
+            return Itm
+  
+          }
+         })  
+         
+        localStorage.setItem("State",JSON.stringify({...state,ItemList,CartList:newCart}))
+         return {...state,ItemList,CartList:newCart}
+     
+
+   },
+   Remove:(state,action)=>{
+    let newList=  state.ItemList.filter(itm=>itm.Id===action.payload.UnitId)
+      
+    const SingleItem=  newList[0].Unit.map((item)=>{
+        if(item.id===action.payload.id){
+          return {...item,qty:1}
+        }
+        else{
+          return item
+        }
+       })  
+       
+      let ItemList =state.ItemList.map((Itm)=>{
+        if(Itm.Id===action.payload.UnitId){
+          return {...Itm,Unit:SingleItem}
+        }
+        else{
+          return Itm
+
+        }
+       })  
 
 
-}
 
+    const newCart= state.CartList.filter((itm)=>{
+      if(itm.id!==action.payload.id){
+        return itm
+      }
+      else{
+        if(itm.UnitId===action.payload.UnitId){
+          
+          return
+        }
+        return itm
+      }
+    })
+    const item=JSON.stringify(newCart)
+     console.log(JSON.parse(item))
+    
+     localStorage.setItem("State",JSON.stringify({...state,CartList:newCart,ItemList}))
+     return {...state,CartList:newCart,ItemList}
+   }
+,
+   EmptyCart:(state)=>{
+    console.log("hey")
+    localStorage.setItem("State",JSON.stringify({...state,CartList:[]}))
+     return {...state,CartList:[]}
+   }
   }
+  
 })
 
 // Action creators are generated for each case reducer function
-export const { ToggleCart } = productSlice.actions
+export const { ToggleCart ,AddCart,Subtract,Add,Remove,ToggleModal,EmptyCart} = productSlice.actions
 
 export default productSlice.reducer

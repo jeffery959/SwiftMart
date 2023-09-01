@@ -2,13 +2,23 @@
 import Star from "../components/Star";
 import "./SinglePage.css";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-
+import { useSelector,useDispatch } from "react-redux";
+import { AddCart,Subtract,Add,ToggleModal } from "../app/features/productSlice";
 const SinglePage = () => {
   const {Id,itemId}=useParams();
   const SingleItem = useSelector(state=>state.product.ItemList[Id].Unit[itemId])
-  const {price,name,img}=SingleItem
+  const {price,name,img,qty}=SingleItem
+  const dispatch =useDispatch()
 console.log(SingleItem)
+
+const addedItem=()=>{
+  dispatch(AddCart(SingleItem))
+  dispatch(ToggleModal())
+  setTimeout(()=>{
+    
+    dispatch(ToggleModal())
+  },3000)
+}
   return (
     
     <div className='SinglePage '>
@@ -29,12 +39,12 @@ console.log(SingleItem)
       <div className="Btn mt-8">
         <div className="Btn-1">
           <p>Qty</p>
-          <button>-</button>
-          <p>1</p>
-          <button>+</button>
+          <button onClick={()=>dispatch(Subtract(SingleItem))}>-</button>
+          <p>{qty}</p>
+          <button onClick={()=>dispatch(Add(SingleItem))}>+</button>
 
         </div>
-        <button>Add Cart</button>
+        <button onClick={()=>addedItem()} >Add To Cart</button>
       </div>
     </div>
    </div>

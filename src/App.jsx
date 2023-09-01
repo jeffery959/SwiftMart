@@ -9,22 +9,16 @@ import SinglePage from './Pages/SinglePage'
 import Checkout from './Pages/Checkout'
 import AboutUs from './Pages/AboutUs'
 import Orders from './Pages/Orders'
+import { useDispatch } from 'react-redux'
+import { ToggleModal } from './app/features/productSlice'
+
 
 export const App_Context = createContext()
 
 function App() {
 
-  const [count, setCount] = useState(0)
-  const [state,dispatch] = useReducer(Reducer,InitialStates)
-  
-  const [isLoading, setIsLoading] = useState(true);
- 
-  useEffect(() => {
-   
-    setIsLoading(false);
-  }, []);
+const dispatch =useDispatch()
   return (
-  <App_Context.Provider value={{state,dispatch}}>
     
     <div className="App">
 
@@ -40,9 +34,7 @@ function App() {
                <Route path='/Checkout' element={<Checkout/>} />
             </Route>
           </Routes>
-
     </div>
-  </App_Context.Provider>
   )
 }
 

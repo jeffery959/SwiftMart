@@ -1,8 +1,8 @@
 .Navbar{
     height: 88px;
     transition-duration: .5s;
-    padding:0 15%;
-    @apply flex  justify-between w-full overflow-hidden items-center sticky top-0 left-0 right-0 z-10;
+    padding:0 10%;
+    @apply flex  justify-between w-full  items-center sticky top-0 left-0 right-0 z-10;
 }
 .Navbar>div{
     

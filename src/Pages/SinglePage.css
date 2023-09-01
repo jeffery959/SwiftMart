@@ -61,7 +61,7 @@
 }
 
 .Btn{
-    @apply flex justify-between pr-48;
+    @apply flex justify-between ;
 }
 .Btn-1,.Btn>button{
     height:clamp(0px,5vh,20px);
@@ -69,10 +69,19 @@
     font-size:clamp(0px,3vw,15px);
     font-weight:700;
     width:40%;
-    @apply flex  border-2 border-black justify-around  items-center;
+    @apply flex text-black  duration-700 border-2 border-black justify-around  items-center;
+}
+
+.Btn-1:hover{
+    @apply bg-black text-white duration-700;
 }
 .Btn>button{
     background:#0969AD;
+    color:white;
+    @apply border-none;
+}
+.Btn>button:hover{
+    background:#1384D4;
     color:white;
     @apply border-none;
 }
@@ -91,12 +100,20 @@
         height:clamp(0px,75%,619px);
         @apply object-cover rounded-lg mr-0;
     }
-    .Btn-1,.Btn>button{
+    .Btn-1{
         height:clamp(0px,8vh,45px);
         padding:5% 8%;
         font-size:clamp(0px,3vw,15px);
         font-weight:600;
         width:45%;
+        @apply flex  border-2 border-black justify-around  items-center;
+    }
+    .Btn>button{
+        height:clamp(0px,8vh,45px);
+        padding:5% 8%;
+        font-size:clamp(0px,2.5vw,14px);
+        font-weight:600;
+        width:47%;
         @apply flex  border-2 border-black justify-around  items-center;
     }
     .SinglePage-View-txt>div>h3{

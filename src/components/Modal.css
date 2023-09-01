@@ -1,0 +1,46 @@
+.Modal{
+    width:250px;
+    height:60px;
+ @apply text-black   bg-white absolute duration-long text-xl rounded-full border border-slate-200 opacity-100  flex justify-center items-center px-2  left-1/2 transform -translate-x-1/2
+}
+.Txt-icon{
+    
+    font-size:clamp(0px,4vw,20px);
+    @apply ml-2;
+
+}
+.Icon>svg{
+width:25px;
+height:25px;
+}
+
+@media (max-width:600px){
+    .Modal{
+        width:200px;
+        height:50px;
+    }
+   
+    .Icon>svg{
+    width:25px;
+    height:25px;
+    }
+
+}
+@media (max-width:300px){
+    .Modal{
+        width:60vw;
+        height:50px;
+     @apply text-black   bg-white absolute duration-long text-xl rounded-full border border-slate-200 opacity-100  flex justify-between items-center px-2  left-1/2 transform -translate-x-1/2
+    }
+    .Txt-icon{
+        
+        font-size:clamp(0px,6vw,15px);
+        @apply ml-2;
+    
+    }
+    .Icon>svg{
+    width:25px;
+    height:25px;
+    }
+
+}

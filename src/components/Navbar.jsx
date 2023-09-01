@@ -68,12 +68,12 @@ const [atHome,setAtHome] = useState(false)
   const dispatch =useDispatch()
   return (
     <div className={`Navbar ${navbarBgColor} `}>
-     
       
 <img src="/Logo/SwiftMart.svg" alt="" className='logo ' />
 
 
 <div className={`flex justify-between  widget  `}>
+     <Modal/>
 
   
    <Cart/> 
@@ -98,7 +98,7 @@ const [atHome,setAtHome] = useState(false)
 </div>
 <div className='Navigation-img '>
   <div className='Navigation-img-search flex justify-center  rounded-lg items-center p-2  '>
-  <img src="Logo\Search.svg" alt="" />
+  <img src="/Logo/Search.svg" alt="" />
 
  <input type="text" placeholder='Search' className='px-3'/>
   </div>
@@ -111,7 +111,7 @@ const [atHome,setAtHome] = useState(false)
 {false ?<div></div>:<div className={`Menu hidden  `}>
 <div className='Navigation-img-mobile '>
   <div className='Navigation-img-search flex justify-center  rounded-lg items-center p-2  '>
-  <img src="Logo\Search.svg" alt="" />
+  <img src="/Logo/Search.svg" alt="" />
 
  <input type="text" placeholder='Search' className='px-3'/>
   </div>

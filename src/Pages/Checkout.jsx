@@ -1,11 +1,10 @@
-import {useContext} from 'react'
+
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 import { App_Context } from '../App';
 import "./Checkout.css"
 
 const Checkout = () => {
-  const {state,dispatch}=useContext(App_Context);
   function calculateTotalCost() {
   let totalCost = 0;
   for (let i = 0; i < state.CartList.length; i++) {
@@ -21,7 +20,7 @@ const Checkout = () => {
         <h1 className='text-5xl  mb-20'>CheckOut</h1>
          <div className=' full_Card flex justify-between '>
 
-<div className="modal w-3/5 outline-2 outline  outline-gray-100 ">
+<div className="modal w-3/5 h-full  outline  outline-gray-100 ">
 <form className="flex flex-col gap-5 p-5 ">
   <div className="payment--options">
     <button name="paypal" type="button" className='flex items-center justify-center'>
@@ -57,22 +56,22 @@ const Checkout = () => {
     </div>
     </div>
   </div>
-    <button className="purchase--btn bg-primary " onClick={(e)=>e.preventDefault()}>Pay <span className='font-Fantasy font-normal'>$</span>{calculateTotalCost()}</button>
+    <button className="purchase--btn bg-primary " onClick={(e)=>e.preventDefault()}>Pay <span className='font-Fantasy font-normal'>$</span>20</button>
 </form>
 </div>
 
 
   <div className='justify-between w-3/5 outline outline-gray-200 YrOrds outline-1 flex items-center  flex-col'>
 <p className='font-bold my-4'>Your Orders</p>
-<div className=' overflow-scroll  flex flex-col items-center h-5/6 w-full'>
-{state.CartList.map((item)=>{
+<div className=' overflow-scroll  flex flex-col items-center  w-full'>
+{/* {state.CartList.map((item)=>{
   
   return(
 
     <Slit item={item} key={item.Id}/>
  
   )
-})}
+})} */}
 </div>
 
   </div>

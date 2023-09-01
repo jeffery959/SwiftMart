@@ -22,7 +22,7 @@
   background-position: center center;
   padding-top:10%;
     
-    @apply  w-full rounded-lg mt-20;
+    @apply  w-full rounded-lg ;
 }
 .Big-Product>img{
 
