@@ -39,23 +39,33 @@ Unit:[
 
 const States=JSON.parse(localStorage.getItem("State"))
 
-console.log(States)
+
    
 export const productSlice = createSlice({
    name: 'product',
-  initialState:States||{
+  initialState:States?{
+   
+    ItemList: States.ItemList,
+      OrderList:States.OrderList,
+      CartDisplay:"Cart_Off",
+      CartList:States.CartList,
+      Modal:"-top-20",
+      ToggleTxt:"Item added to Cart"
+  
+      
+  } :{
    
   ItemList: DataBase,
     OrderList:[
       
-      {id:0,price:249.99, qty:1,name:"Suit",img:"/Images/Product-img/Suit-guy.jpg"},
-      {id:1,price:1055, qty:1,name:"MacBook",img:"/Images/Product-img/MacBook.png"},
+    
     ],
     CartDisplay:"Cart_Off",
     CartList:[
       
     ],
-    Modal:"-top-20"
+    Modal:"-top-20",
+    ToggleTxt:"Item added to Cart"
 
     
 } ,
@@ -70,7 +80,6 @@ if(state.Modal==="-top-20"){
 }
     },
     ToggleCart:(state)=>{
-      console.log(state.CartDisplay)
     if(state.CartDisplay==="Cart_Off"){
       state.CartDisplay="Cart_On"
     }
@@ -234,23 +243,37 @@ if(state.Modal==="-top-20"){
         return itm
       }
     })
-    const item=JSON.stringify(newCart)
-     console.log(JSON.parse(item))
     
      localStorage.setItem("State",JSON.stringify({...state,CartList:newCart,ItemList}))
      return {...state,CartList:newCart,ItemList}
    }
 ,
    EmptyCart:(state)=>{
-    console.log("hey")
     localStorage.setItem("State",JSON.stringify({...state,CartList:[]}))
      return {...state,CartList:[]}
+   }
+   ,
+   Payment:(state)=>{
+    state.ToggleTxt="Items Payed"
+    localStorage.setItem("State",JSON.stringify( {...state,CartList:[],OrderList:[...state.OrderList,...state.CartList],CartDisplay:"Cart_Off"}))
+    return {...state,CartList:[],OrderList:[...state.OrderList,...state.CartList],CartDisplay:"Cart_Off"}
+
+   }
+   ,  ChangeTxt:(state,action)=>{
+    if(action.payload==="Items Payed"){
+
+      state.ToggleTxt="Item added to Cart"
+    }
+    else{
+      state.ToggleTxt="Items Payed"
+
+    }
    }
   }
   
 })
 
 // Action creators are generated for each case reducer function
-export const { ToggleCart ,AddCart,Subtract,Add,Remove,ToggleModal,EmptyCart} = productSlice.actions
+export const { ChangeTxt,Payment,ToggleCart ,AddCart,Subtract,Add,Remove,ToggleModal,EmptyCart} = productSlice.actions
 
 export default productSlice.reducer

@@ -1,6 +1,6 @@
 .ItemContainer{
    width:clamp(0px,35vw,300px);
-   height:clamp(0px,40vw,350px);
+   height:clamp(0px,40vw,450px);
    margin-bottom:50px;
 }
 .ImgLink{
@@ -29,10 +29,15 @@
 
 .ItemContainer_Info_Icon{
    width:clamp(0px,30%,60px);
-   @apply duration-700 rounded-xl bg-slate-900;
+   
+   background: #0C8DE8;
+   
+   @apply duration-700 rounded-xl ;
 }
 .ItemContainer_Info_Icon:hover{
-   @apply  bg-slate-800;
+   background:#0969AD;
+   @apply duration-700  ;
+  
 }
 .ItemContainer_Info>div>img{
    width:30%;

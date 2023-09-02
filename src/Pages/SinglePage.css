@@ -1,13 +1,16 @@
 
+.Single-Main{
 
-
-.SinglePage{
     padding:0px 15%;
-    height:90vh;
-    @apply w-full  mt-1 mb-60 flex justify-center items-center ;
+  @apply mb-72;
+}
+.SinglePage{
+    height:85vh;
+    @apply w-full mb-16 flex  justify-center items-center ;
 }
 
 .SinglePage-View{
+    
 
     @apply  w-full h-full flex justify-start items-center ;
 }
@@ -184,9 +187,12 @@
         width:100%;
         
     }
-    .SinglePage{
-        padding:0px 5%;
-    }
+   
+    
+.Single-Main{
+
+    padding:0px 5%;
+}
     
 
 }

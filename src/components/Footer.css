@@ -1,0 +1,32 @@
+.Footer{
+    padding:0px 15%;
+
+    background:#0969AD;
+    font-size:clamp(0px,2vw,15px)
+}
+.footer-icons{
+    
+    width:clamp(100px,20%,300px);
+}
+.footer-icons>svg{
+    
+    width:10%;
+}
+
+
+@media(max-width:850px){
+
+    .Footer{
+        padding:0px 5%;
+        font-size:clamp(0px,3vw,15px)
+    }
+    .footer-icons{
+    
+        width:clamp(50px,25%,300px);
+    }
+    .footer-icons>svg{
+    
+        width:20%;
+    }
+    
+}

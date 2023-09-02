@@ -39,7 +39,7 @@
     @apply flex justify-start  items-center ;
 }
 .Orders-Item>img {
-   min-width:clamp(0px,100%,100px);
+   min-width:clamp(0px,100%,900px);
    height:100px;
    
     @apply rounded-lg object-cover;

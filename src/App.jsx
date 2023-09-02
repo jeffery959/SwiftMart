@@ -10,12 +10,21 @@ import Checkout from './Pages/Checkout'
 import AboutUs from './Pages/AboutUs'
 import Orders from './Pages/Orders'
 import { useDispatch } from 'react-redux'
+
+import { useLocation } from 'react-router-dom';
 import { ToggleModal } from './app/features/productSlice'
 
 
 export const App_Context = createContext()
 
 function App() {
+  const location = useLocation()
+
+  useEffect(()=>{
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  },[location.pathname])
+
 
 const dispatch =useDispatch()
   return (

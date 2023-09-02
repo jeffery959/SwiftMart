@@ -1,4 +1,13 @@
 .About{
     padding:0px 15%;
-    @apply w-full;
+    @apply w-full h-screen;
+}
+
+
+@media(max-width:850px){
+    .About{
+        padding:0px 5%;
+        @apply w-full;
+    }
+    
 }

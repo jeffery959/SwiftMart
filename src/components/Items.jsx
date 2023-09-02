@@ -2,16 +2,18 @@
 import { Link } from 'react-router-dom'
 import "./Items.css"
 
-import { useSelector ,useDispatch} from 'react-redux';
-import { AddCart,ToggleModal } from '../app/features/productSlice'
+import { useDispatch} from 'react-redux';
+import { AddCart,ToggleModal,ChangeTxt } from '../app/features/productSlice'
 
 const Item = ({item,Deck}) => {
   
   const dispatch = useDispatch()
   const {price,name,img,id}=item
     const AddToCart =()=>{
+      dispatch(ChangeTxt("Items Payed"))
     dispatch(AddCart(item))
     dispatch(ToggleModal())
+    
     setTimeout(()=>{
     
       dispatch(ToggleModal())
@@ -30,7 +32,7 @@ const Item = ({item,Deck}) => {
         </div>
         <div className='flex justify-center ItemContainer_Info_Icon ' onClick={()=> AddToCart()}>
 
-         <img src="Logo\Add-Cart.svg" alt="" />
+         <img src="\Logo\Add-Cart.svg" alt="" />
         </div>
 
       </div>

@@ -1,4 +1,4 @@
-import React,{useEffect,useState,useContext,useCallback,memo} from 'react'
+import React,{useEffect,useState} from 'react'
 import "./Navbar.css";
 import MenuIcon from '@mui/icons-material/Menu';
 import { IconButton } from '@mui/material';
@@ -6,9 +6,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import Modal from './Modal';
-import { App_Context } from '../App';
 import { ToggleCart } from '../app/features/productSlice';
 import { useSelector,useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Cart from './Cart';
 const Navbar = () => {
 const [navbarBgColor, setNavbarBgColor] = useState('');
@@ -22,7 +22,7 @@ const [atHome,setAtHome] = useState(false)
 
 
 
-    
+    const ToggleTxt= useSelector(state=>state.product.ToggleTxt)
  useEffect(() => {
 
   
@@ -69,11 +69,12 @@ const [atHome,setAtHome] = useState(false)
   return (
     <div className={`Navbar ${navbarBgColor} `}>
       
+<Link to={"/"}>
 <img src="/Logo/SwiftMart.svg" alt="" className='logo ' />
-
+</Link>
 
 <div className={`flex justify-between  widget  `}>
-     <Modal/>
+     <Modal Txt={ToggleTxt}/>
 
   
    <Cart/> 
@@ -102,10 +103,14 @@ const [atHome,setAtHome] = useState(false)
 
  <input type="text" placeholder='Search' className='px-3'/>
   </div>
+<IconButton onClick={()=>dispatch(ToggleCart())}>
 
-<img src={`/Logo/${atHome?"Cart.svg":"Cart-black.svg"}`} onClick={()=>dispatch(ToggleCart())} />
+<img src={`/Logo/${atHome?"Cart.svg":"Cart-black.svg"}`}  />
+</IconButton>
+<IconButton>
 
 <img src={`/Logo/${atHome?"User.svg":"User-black.svg"}`}/>
+</IconButton>
 </div>
 </div>
 {false ?<div></div>:<div className={`Menu hidden  `}>

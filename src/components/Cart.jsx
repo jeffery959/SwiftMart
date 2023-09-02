@@ -4,6 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import "./Cart.css"
 import { useSelector ,useDispatch} from 'react-redux';
 import {Remove, ToggleCart, Subtract,Add,EmptyCart} from '../app/features/productSlice';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   
@@ -16,12 +17,14 @@ const Cart = () => {
    const dispatch =useDispatch()
   return (
     <div className={`Cart ${CartDisplay} `}>
+<div className='flex  justify-end'>
 
-     <IconButton  className='z-50 float-right' onClick={(()=>dispatch(ToggleCart()))}>
+     <IconButton  className='z-50 outline' onClick={(()=>dispatch(ToggleCart()))}>
 <CloseIcon className={`text-white z-50` } />
 
 
 </IconButton>
+</div>
 
 <div className='flex flex-col'>
   {
@@ -29,9 +32,9 @@ const Cart = () => {
       return <Single_Cart item={item} key={item.name}/>
     })
   }
-  {CartList.length&&<>
+  {CartList.length>0&&<>
 
-    <button className='bg-sky-600  p-2 px-5 flex justify-center items-center gap-2 text-white  rounded-xl mb-3 hover:bg-sky-800 duration-300 mt-24' >CheckOut</button>
+    <Link to={"/Checkout"} className='bg-sky-600  p-2 px-5 flex justify-center items-center gap-2 text-white  rounded-xl mb-3 hover:bg-sky-800 duration-300 mt-24' >CheckOut</Link>
   <button className='bg-sky-600  p-2 px-5 flex justify-center items-center gap-2 text-white  rounded-xl mb-3 hover:bg-sky-800 duration-300 mt-8' onClick={()=>dispatch(EmptyCart())}>Clear Cart</button>
   </>
   }

@@ -3,6 +3,9 @@ import Star from "../components/Star";
 import "./SinglePage.css";
 import { useParams } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
+import { useState,useEffect } from "react";
+import Items from "../components/Items";
+import {Product_Deck} from "./Products"
 import { AddCart,Subtract,Add,ToggleModal } from "../app/features/productSlice";
 const SinglePage = () => {
   const {Id,itemId}=useParams();
@@ -19,10 +22,13 @@ const addedItem=()=>{
     dispatch(ToggleModal())
   },3000)
 }
+
+const ItemList =useSelector((state)=>state.product.ItemList)
   return (
-    
+    <div className="Single-Main">
+
     <div className='SinglePage '>
-   <div className="SinglePage-View">
+   <div className="SinglePage-View ">
     <img src={img} alt="" className="" />
     <div className="SinglePage-View-txt">
       <div>
@@ -48,9 +54,29 @@ const addedItem=()=>{
       </div>
     </div>
    </div>
+    </div>
+    {
+  ItemList.map((Deck)=>{
+  
+  if(parseInt(Id)===Deck.Id){
+
+    return  <Product_Deck Deck={Deck} itemId={itemId} key={Deck.Id} Category={"Related Items"}/>
+  }else{
+    return
+  }
+
+ }
+  
+  
+  )
+}
     
     </div>
   )
+
+  
 }
+
+
 
 export default SinglePage

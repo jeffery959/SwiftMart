@@ -1,5 +1,6 @@
 import {memo} from "react"
 import "./Hero_banner.css"
+import { Link } from "react-router-dom"
 const Hero_banner = () => {
  
   return (
@@ -12,7 +13,12 @@ const Hero_banner = () => {
       
     <div className=' text  w-full flex flex-col items-center  justify-center h-screen'>
        <p className='Banner-text text-center text-white'>Shop with Swift Mart and benefit from our best offers now</p>
-       <button className='banner_btn'>Shop Now</button>
+        <Link to={"/Products"}  className='banner_btn '>
+       <button>
+        Shop Now
+        
+        </button>
+        </Link>
       </div>    
 
     </section>

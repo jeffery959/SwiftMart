@@ -1,26 +1,34 @@
 
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-
-import { App_Context } from '../App';
+import { useDispatch, useSelector } from 'react-redux';
+import { Payment ,ChangeTxt,ToggleModal} from '../app/features/productSlice';
 import "./Checkout.css"
 
 const Checkout = () => {
-  function calculateTotalCost() {
-  let totalCost = 0;
-  for (let i = 0; i < state.CartList.length; i++) {
-    const item = state.CartList[i];
-    const cost = item.Price * item.count;
-    totalCost += cost;
-  }
-  console.log(Math.round(100*totalCost)/100)
-  return Math. round(100*totalCost)/100
+const CartList = useSelector(state=>state.product.CartList)
+let Total=CartList.reduce((sum,itm)=>{
+  return sum +=itm.price*itm.qty
+},0)
+
+const dispatch=useDispatch()
+Total =parseFloat(Total).toFixed(2);
+const handleTotal=(e)=>{
+  e.preventDefault()
+  dispatch(ChangeTxt())
+  dispatch(ToggleModal())
+  setTimeout(()=>{
+    
+    dispatch(ToggleModal())
+  },3000)
+  dispatch(Payment())
+  
 }
   return (
-    <div className=' flex flex-col h-screen   items-center  pt-5 Checkout mt-40'>
-        <h1 className='text-5xl  mb-20'>CheckOut</h1>
-         <div className=' full_Card flex justify-between '>
+    <div className=' flex flex-col h-screen w-full    items-center   Checkout '>
+        <h1 className=' Checkout-Title'>CheckOut</h1>
+         <div className=' full_Card flex justify-center '>
 
-<div className="modal w-3/5 h-full  outline  outline-gray-100 ">
+<div className="modal w-full h-full  outline  outline-gray-100 ">
 <form className="flex flex-col gap-5 p-5 ">
   <div className="payment--options">
     <button name="paypal" type="button" className='flex items-center justify-center'>
@@ -56,25 +64,12 @@ const Checkout = () => {
     </div>
     </div>
   </div>
-    <button className="purchase--btn bg-primary " onClick={(e)=>e.preventDefault()}>Pay <span className='font-Fantasy font-normal'>$</span>20</button>
+    <button className="purchase--btn bg-primary " onClick={(e)=>handleTotal(e)}>Pay <span className='font-Fantasy font-normal mx-1'>$</span>{Total}</button>
 </form>
 </div>
 
 
-  <div className='justify-between w-3/5 outline outline-gray-200 YrOrds outline-1 flex items-center  flex-col'>
-<p className='font-bold my-4'>Your Orders</p>
-<div className=' overflow-scroll  flex flex-col items-center  w-full'>
-{/* {state.CartList.map((item)=>{
   
-  return(
-
-    <Slit item={item} key={item.Id}/>
- 
-  )
-})} */}
-</div>
-
-  </div>
 
         </div>
       

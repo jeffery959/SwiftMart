@@ -2,7 +2,7 @@ import "./Order.css"
 import {  useSelector } from "react-redux/es/hooks/useSelector"
 const Orders = () => {
     const OrderList=useSelector((state)=>state.product.OrderList)
-    console.log(OrderList)
+   
   return (
     <div className=" w-full  Orders-frame ">
       <div className="flex justify-center">
@@ -20,7 +20,7 @@ const Orders = () => {
                 <h3>Qty</h3>
               </div>
               {
-                OrderList.map((Item)=><OrderItem Item={Item} key={Item.id}/>)
+                OrderList.map((Item,Id)=><OrderItem Item={Item} key={Id}/>)
               }
 
 
@@ -34,7 +34,7 @@ const Orders = () => {
 
 const OrderItem=({Item})=>{
 
-const {name,price,img}=Item
+const {name,price,img,qty}=Item
   return  (
       <div className="Orders-Item">
                 <img src={img} alt="" />
@@ -42,7 +42,7 @@ const {name,price,img}=Item
                 <p>{price}</p>
                 <p>#332448</p>
                 <p>08/29/23</p>
-                <p>003</p>
+                <p>00{qty}</p>
 
 
               </div>

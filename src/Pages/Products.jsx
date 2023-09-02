@@ -12,8 +12,35 @@ import Checkout from './Checkout';
 const Products = () => {
 
   const ItemList =useSelector((state)=>state.product.ItemList)
- 
+  const swiperRef = useRef(null);
 
+  useEffect(() => {
+    const swiper = swiperRef.current?.swiper;
+    const interval =10000; // Set the interval for auto-scroll in milliseconds (e.g., 3 seconds).
+
+    const autoScroll = () => {
+      swiper.slideNext(500); 
+      
+      
+    };
+
+   let autoScrollInterval = setInterval(autoScroll, interval);
+
+    // Pause auto-scrolling when the user interacts with the swiper.
+    swiper.el.addEventListener('mouseover', () => {
+      clearInterval(autoScrollInterval);
+    });
+
+    // Resume auto-scrolling when the user stops interacting with the swiper.
+    swiper.el.addEventListener('mouseleave', () => {
+      clearInterval(autoScrollInterval);
+      autoScrollInterval = setInterval(autoScroll, interval);
+    });
+
+    return () => {
+      clearInterval(autoScrollInterval);
+    };
+  }, []);
   return (
     <div className=' Products  '>
       
@@ -21,17 +48,17 @@ const Products = () => {
        loop={true}
         pagination={{
           clickable: true,
-        }} modules={[Pagination]} className="mySwiper " >
-        <SwiperSlide><BigProduct/></SwiperSlide>
-        <SwiperSlide><BigProduct/></SwiperSlide>
-        <SwiperSlide><BigProduct/></SwiperSlide>
+        }} modules={[Pagination]} className="mySwiper " ref={swiperRef}>
+        <SwiperSlide><BigProduct Img={"/Images/Big_Banner.png"}/></SwiperSlide>
+        <SwiperSlide><BigProduct Img={"/Images/Big_Banner_2.jpg"}/></SwiperSlide>
+        <SwiperSlide><BigProduct Img={"/Images/Big_Baner_3.jpg"}/></SwiperSlide>
       </Swiper>
 
 {
   ItemList.map((Deck)=>{
   
   
-  return  <Product_Deck Deck={Deck} key={Deck.Id}/>
+  return  <Product_Deck Deck={Deck} key={Deck.Id} Category={Deck.Category}/>
 
  }
   
@@ -59,7 +86,8 @@ const Products = () => {
 
 
 
-const Product_Deck = ({Deck})=>{
+const Product_Deck = ({Deck,itemId,Category})=>{
+  
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   
   useEffect(() => {
@@ -77,7 +105,7 @@ const Product_Deck = ({Deck})=>{
     };
   }, []);
  return  <>
-  <h3 className='Products-tag '>{Deck.Category}</h3>
+  <h3 className='Products-tag '>{Category}</h3>
   {isSmallScreen ? (
           
           <Swiper
@@ -94,8 +122,12 @@ const Product_Deck = ({Deck})=>{
           >
           {
             Deck.Unit.map(item=>{
-              
+              if(itemId==item.id){
+                
+                return
+              }
               return <SwiperSlide key={item.id}><Items item={item} Deck={Deck}/></SwiperSlide>
+              
             })
           }
         </Swiper>
@@ -105,7 +137,10 @@ const Product_Deck = ({Deck})=>{
             
   {
     Deck.Unit.map(item=>{
-      
+      if(itemId==item.id){
+
+        return
+      }
       return <Items item={item} key={item.id} Deck={Deck}/>
     })
   }
@@ -117,10 +152,14 @@ const Product_Deck = ({Deck})=>{
 }
 
 
-const BigProduct =()=>{
+const BigProduct =({Img})=>{
   
+  useEffect(()=>{
+
+  })
+
   return(
-  <div className=' Big-Product mb-0 z-30' style={{backgroundImage:`url("/Images/Big_Banner.png")`}}>
+  <div className=' Big-Product mb-0 z-30' style={{backgroundImage:`url(${Img})`}}>
         <div>
 
         <p>Uprade your style with our Casual wears</p>
@@ -130,4 +169,5 @@ const BigProduct =()=>{
       </div>)
 }
 
+export {Product_Deck}
 export default memo( Products)

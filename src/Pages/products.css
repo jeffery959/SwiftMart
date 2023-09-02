@@ -1,6 +1,7 @@
 .Products{
 
     padding:10px 15% ;
+    margin-top:45px;
 }
 .Product-view{
     @apply flex  justify-between flex-wrap gap-5 ;
@@ -10,8 +11,8 @@
 .Products-tag{
     font-size:clamp(0px,5vw,40px);
     font-weight:600;
-    margin-top:70px;
-    margin-bottom:30px;
+    margin-top:120px;
+    margin-bottom:clamp(0px,10%,40px);
 }
 .Big-Product{
     height:35vw;
@@ -19,8 +20,8 @@
     background-size: cover;
     background-repeat: no-repeat;
     
-  background-position: center center;
-  padding-top:10%;
+    background-position: center center;
+    padding-top:clamp(0px,10%,200px);
     
     @apply  w-full rounded-lg ;
 }
@@ -29,7 +30,7 @@
     @apply rounded-lg;
 }
 .Big-Product>div{
-  height:70%;
+  height:80%;
     @apply flex flex-col justify-between items-center ;
 }
 .Big-Product>div>button{

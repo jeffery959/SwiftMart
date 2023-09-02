@@ -22,8 +22,8 @@
     width:40%;
     @apply flex justify-between items-center;
 }
-.Navigation-img>img{
-    width:clamp(0px,15%,20px);
+.logo{
+    width:clamp(0px,15vw,150px);
 }
 
 .Navigation>*:hover{
@@ -33,11 +33,11 @@
 .Navigation-img-search{
     width:70%;
     height:70%;
-    @apply bg-gray-100;
+    @apply bg-gray-100 ;
 }
 .Navigation-img-search>input{
     width:90%;
-    @apply bg-gray-100;
+    @apply bg-gray-100 outline-none ;
 }
 
 

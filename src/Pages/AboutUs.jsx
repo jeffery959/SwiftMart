@@ -5,10 +5,8 @@ const AboutUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform any necessary actions with the input values
-    console.log('Submitted values:', inputValues);
+  
 
-    // Clear all input values
     setInputValues({});
   };
   const handleChange = (e) => {
@@ -19,12 +17,12 @@ const AboutUs = () => {
     }));
   };
   return (
-    <div className='About flex flex-col justify-center  mt-32 mb-16'>
+    <div className='About flex flex-col justify-center   mb-16'>
           <div className='flex items-center flex-col'>
       <h1 className='flex justify-center text-2xl font-bold text-slate-700'>AboutUs</h1>
       <div className='w-10  border-b-2 rounded-lg  border-primary '></div>
       </div>
-      <div className='flex justify-center p-12 text-center font-medium text-gray-500'>
+      <div className='flex justify-center  text-center font-medium text-gray-500'>
 
       <p>Our unwavering objective is to exceed expectations at every stage of our product journey, an extraordinary odyssey that has taken us an astounding 1000 miles since 2023. Our commitment to absolute satisfaction propels us to go beyond conventional limits, leaving no stone unturned in our pursuit of excellence. We strive to create an experience that transcends boundaries and revolutionizes the way you interact with our products.</p>
       </div>
@@ -32,7 +30,7 @@ const AboutUs = () => {
       <h1 className='flex justify-center text-2xl font-bold text-slate-700'>ContactUs</h1>
       <div className='w-10  border-b-2 rounded-lg  border-primary '></div>
       </div>
-      <form className='flex flex-col items-center' >
+      <form className='flex flex-col items-center ' >
   <input type="text" className='bg-gray-200 w-4/5 px-3 mb-5 outline-none py-2' name="input1"
         value={inputValues.input1 || ''}
         onChange={handleChange} placeholder='Name'/>
