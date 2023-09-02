@@ -2,7 +2,7 @@
 .Single-Main{
 
     padding:0px 15%;
-  @apply mb-72;
+    margin-bottom:clamp(0px,40%,200px);
 }
 .SinglePage{
     height:85vh;
