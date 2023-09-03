@@ -75,7 +75,7 @@ const Products = () => {
     <div className='Foot-banner-txt'>
 
 <p>Explore Our Furniture's this Season for 40% off</p>
-<button><p>Explore Now</p> <img src="Logo\arrow.svg" alt="" className='ml-2' /></button>
+<button><p>Explore Now</p> </button>
 </div>
     </div>
     </div>
@@ -159,11 +159,11 @@ const BigProduct =({Img})=>{
   })
 
   return(
-  <div className=' Big-Product mb-0 z-30' style={{backgroundImage:`url(${Img})`}}>
+  <div className='Big-Product mb-0 z-30' style={{backgroundImage:`url(${Img})`}}>
         <div>
 
         <p>Uprade your style with our Casual wears</p>
-        <button><p>Shop Now</p> <img src="Logo\arrow.svg" alt="" className='ml-2' /></button>
+        <button className='Big_Product_btn'><p>Shop Now</p> </button>
         </div>
        
       </div>)

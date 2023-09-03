@@ -33,18 +33,22 @@
   height:80%;
     @apply flex flex-col justify-between items-center ;
 }
-.Big-Product>div>button{
+.Big_Product_btn{
 font-size:clamp(0px,3vw,20px);
-background:white;
 width:clamp(0px,55%,240px);
 padding:2%;
 font-weight:500;
-@apply flex justify-evenly items-center;
+@apply flex justify-evenly items-center bg-white border-white  border-2 duration-500;
+}
+.Big_Product_btn:hover{
+
+@apply bg-transparent text-white;
 }
 .Big-Product>div>p{
     width:20ch;
     font-size:clamp(0px,500%,90px);
     font-weight:700;
+    
     @apply text-center text-white;
     
 }
@@ -75,7 +79,11 @@ font-weight:500;
     width:clamp(0px,50%,240px);
     padding:2%;
     font-weight:500;
-    @apply flex justify-evenly items-center;
+    @apply flex justify-evenly duration-500 items-center border-2 border-white;
+}
+.Foot-banner-txt>button:hover{
+   
+    @apply bg-transparent text-white;
 }
 .Foot-banner-Limited{
     width:clamp(0px,30%,120px);
@@ -134,15 +142,14 @@ font-weight:500;
         font-weight:600;
         margin:30px 0px;
     }
-    .Big-Product>div>button{
+    .Big_Product_btn{
         font-size:clamp(0px,3vw,20px);
-        background:white;
         width:clamp(0px,45%,150px);
         padding:clamp(0px,3%,10px);
         font-weight:500;
         @apply flex justify-evenly items-center;
         }
-    .Big-Product>div>button>img{
+    .Big_Product_btn>img{
         width:12%;
         }
     .Big-Product{
