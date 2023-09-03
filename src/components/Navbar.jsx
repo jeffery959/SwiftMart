@@ -42,10 +42,8 @@ const [atHome,setAtHome] = useState(false)
   }
 },[window.scrollY,location.pathname,atHome,isToggled]);
 
-useEffect(()=>{
 
-  dispatch(ToggleVisit())
-},[])
+
 
 
 
@@ -133,8 +131,10 @@ Visited&&
   </div>
 <IconButton  onClick={()=>dispatch(ToggleCart())}>
 <img src={`/Logo/${atHome?"Cart.svg":"Cart-black.svg"}`} />
+{CartList.length>0&&
 
-<p className='Notify'>1</p>
+<p className='Notify'>{CartList.length}</p>
+}
 </IconButton>
 <IconButton>
 
