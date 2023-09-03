@@ -1,18 +1,29 @@
 
-
+.banner{
+  width:100%;
+  height:100vh;
+  padding:10%;
+  background:url("Images/Banner.jpg");
+  
+  background-size: cover;
+  background-repeat: no-repeat;    
+ background-position: center center;
+@apply absolute top-0;
+  
+}
 .Banner-text{
   width:35ch;
-  font-size:clamp(0px,80vw,75px);
+  font-size:clamp(0px,3vw,45px);
   font-weight:500;
   margin-bottom:10%;
   padding: 0px;
+  
+  color:#0969AD;
 }
 
 .banner>img {
-  position: absolute;
-  top: 0px;
-  height:100vh;
-  @apply w-full object-cover  p-0  ;
+  @apply object-cover  p-0  w-full  ;
+ 
 }
 
 
@@ -20,64 +31,22 @@
 
 .banner_btn{
 transition-duration:.4s;
-font-size:clamp(0px,4vw,30px);
+font-size:clamp(0px,4vw,20px);
 font-weight:700;
-
-@apply bg-primary py-5 text-white rounded-xl w-1/2 flex justify-center items-center;
+width:clamp(0px,45%,250px);
+@apply text-primary py-5 border-primary border-2   flex justify-center items-center;
 }
 .banner_btn:hover{
-transition-duration:.4s;
-width:60%;
+  transition-duration:.4s;
+  width:clamp(0px,50%,300px);
+  @apply text-white bg-primary;
+
 }
+
+
+
 
 .text{
- position: absolute;
- padding:15%;
-  top: 0px;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  @applyh-screen;
+  width:45%;
+  height:60%;
 }
-
-
-@media (max-width:2000px){
-
-  .Banner-text{
-    width:35ch;
-    font-size:clamp(0px,40vw,55px);}
-
-
-}
-@media (max-width:1570px){
-
-  .Banner-text{
-    width:35ch;
-    font-size:clamp(0px,3.6vw,50px);}
-
-
-}
-@media (max-width:850px){
-
-.Banner-text{
-  width:30ch;
-  font-weight:500;
-  font-size:clamp(0px,30vw,32px);
-  margin-bottom:30%;
-}
-
-
-}
-
-@media (max-width:550px){
-
-.Banner-text{
-  width:30ch;
-  font-weight:500;
-  font-size:clamp(0px,10vw,15px);
-}
-
-
-}
-
-

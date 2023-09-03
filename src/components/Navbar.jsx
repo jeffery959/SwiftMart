@@ -133,7 +133,7 @@ Visited&&
 <img src={`/Logo/${atHome?"Cart.svg":"Cart-black.svg"}`} />
 {CartList.length>0&&
 
-<p className='Notify'>{CartList.length}</p>
+  <p className='Notify'>{CartList.length}</p>
 }
 </IconButton>
 <IconButton>

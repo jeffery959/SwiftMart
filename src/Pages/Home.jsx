@@ -12,7 +12,7 @@ const Home = () => {
 
   },[])
   return (
-    <div className='h-screen'>
+    <div className=''>
     
 
         <Hero_banner/>

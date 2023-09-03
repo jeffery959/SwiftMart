@@ -4,15 +4,15 @@ import { Link } from "react-router-dom"
 const Hero_banner = () => {
  
   return (
-    <div className='  
-    '>
 
-    <section className= 'child banner    '>  
-      <img src="Images\Headphone-blue.png" alt=""  />
+    <div className="hme-Main h-screen">
+
+    <section className= 'child banner flex items-center  '>  
     
       
-    <div className=' text  w-full flex flex-col items-center  justify-center h-screen'>
-       <p className='Banner-text text-center text-white'>Shop with Swift Mart and benefit from our best offers now</p>
+    <div className=' text flex flex-col  items-center justify-between
+    '>
+       <p className='Banner-text  text-center w-full'>Shop with Swift Mart and benefit from our best offers now</p>
         <Link to={"/Products"}  className='banner_btn '>
        <button>
         Shop Now
@@ -22,8 +22,8 @@ const Hero_banner = () => {
       </div>    
 
     </section>
-
     </div>
+
   
 
 

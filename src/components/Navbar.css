@@ -25,15 +25,12 @@
 }
 .logo{
     
-    width:clamp(0px,25%,140px);
+    width:clamp(0px,25vw,100px);
 }
 
 .Navigation-img,.Navigation-img-mobile {
     width:40%;
     @apply flex justify-between items-center;
-}
-.logo{
-    width:clamp(0px,15vw,150px);
 }
 
 .Navigation>*:hover{
