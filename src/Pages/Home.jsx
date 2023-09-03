@@ -13,7 +13,6 @@ const Home = () => {
   },[])
   return (
     <div className='h-screen'>
-      <Navbar/>
     
 
         <Hero_banner/>

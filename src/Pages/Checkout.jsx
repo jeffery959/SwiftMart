@@ -1,7 +1,7 @@
 
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { useDispatch, useSelector } from 'react-redux';
-import { Payment ,ChangeTxt,ToggleModal} from '../app/features/productSlice';
+import { Payment ,ChangeTxt,ToggleModal,ToggleVisit} from '../app/features/productSlice';
 import "./Checkout.css"
 
 const Checkout = () => {
@@ -20,6 +20,8 @@ const handleTotal=(e)=>{
     
     dispatch(ToggleModal())
   },3000)
+  
+  dispatch(ToggleVisit())
   dispatch(Payment())
   
 }

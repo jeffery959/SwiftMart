@@ -39,33 +39,36 @@ Unit:[
 
 const States=JSON.parse(localStorage.getItem("State"))
 
-
+console.log(States)
    
 export const productSlice = createSlice({
    name: 'product',
-  initialState:States?{
+  initialState:States!==null?{
    
     ItemList: States.ItemList,
       OrderList:States.OrderList,
       CartDisplay:"Cart_Off",
       CartList:States.CartList,
       Modal:"-top-20",
-      ToggleTxt:"Item added to Cart"
-  
+      ToggleTxt:"Item added to Cart",
+      Visited:false
       
-  } :{
-   
-  ItemList: DataBase,
-    OrderList:[
       
+    } :{
+      
+      ItemList: DataBase,
+      OrderList:[
+        
+        
+      ],
+      CartDisplay:"Cart_Off",
+      CartList:[
+        
+      ],
+      Modal:"-top-20",
+      ToggleTxt:"Item added to Cart",
+      Visited:false
     
-    ],
-    CartDisplay:"Cart_Off",
-    CartList:[
-      
-    ],
-    Modal:"-top-20",
-    ToggleTxt:"Item added to Cart"
 
     
 } ,
@@ -268,12 +271,23 @@ if(state.Modal==="-top-20"){
       state.ToggleTxt="Items Payed"
 
     }
+   },
+   ToggleVisit:(state,action)=>{
+    
+ if(action.payload==="Default"){
+   state.Visited=false
+
+ }else{
+      state.Visited=true
+
+    }
+    console.log(state.Visited)
    }
   }
   
 })
 
 // Action creators are generated for each case reducer function
-export const { ChangeTxt,Payment,ToggleCart ,AddCart,Subtract,Add,Remove,ToggleModal,EmptyCart} = productSlice.actions
+export const { ToggleVisit,ChangeTxt,Payment,ToggleCart ,AddCart,Subtract,Add,Remove,ToggleModal,EmptyCart} = productSlice.actions
 
 export default productSlice.reducer

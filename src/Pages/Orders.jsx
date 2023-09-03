@@ -1,8 +1,21 @@
+import { useEffect } from "react"
 import "./Order.css"
 import {  useSelector } from "react-redux/es/hooks/useSelector"
+import { useDispatch } from "react-redux"
+import { ToggleVisit } from "../app/features/productSlice"
+import { useLocation } from "react-router-dom"
 const Orders = () => {
     const OrderList=useSelector((state)=>state.product.OrderList)
-   
+   const dispatch = useDispatch()
+
+   const location = useLocation()
+    useEffect(()=>{
+      if(location.pathname!=="/OrdersPage"){
+       return 
+      }
+      console.log(location.pathname)
+      dispatch(ToggleVisit("Default"))
+    },[location.pathname])
   return (
     <div className=" w-full  Orders-frame ">
       <div className="flex justify-center">

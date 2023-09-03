@@ -12,7 +12,7 @@ import Orders from './Pages/Orders'
 import { useDispatch } from 'react-redux'
 
 import { useLocation } from 'react-router-dom';
-import { ToggleModal } from './app/features/productSlice'
+import { ToggleModal,ToggleVisit } from './app/features/productSlice'
 
 
 export const App_Context = createContext()
@@ -33,8 +33,8 @@ const dispatch =useDispatch()
 
           <Routes>
             
-              <Route path="/" element={<Home />} />
             <Route path="/" element={<Layout />}>
+              <Route path="/home" element={<Home />} />
               <Route path="/products" element={<Products />} />
               <Route path='/AboutUsPage' element={<AboutUs/>} />
               <Route path='/OrdersPage' element={<Orders/>} />

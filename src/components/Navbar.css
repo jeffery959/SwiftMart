@@ -4,6 +4,16 @@
     padding:0 10%;
     @apply flex  justify-between w-full  items-center sticky top-0 left-0 right-0 z-10;
 }
+.Notify{
+    
+    font-size:clamp(0px,3vw,10px);
+    @apply absolute text-white top-1 left-5 bg-primary rounded-full w-4 h-4 flex justify-center items-center;
+}
+.Navigation>a>.Order_Notify{
+    font-size:clamp(0px,3vw,10px);
+    @apply relative text-white  -top-2 right-2  bg-primary rounded-full w-4 h-4 flex justify-center items-center;
+
+}
 .Navbar>div{
     
     width:clamp(0px,75%,700px);

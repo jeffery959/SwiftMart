@@ -6,7 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import Modal from './Modal';
-import { ToggleCart } from '../app/features/productSlice';
+import { ToggleCart, ToggleVisit } from '../app/features/productSlice';
 import { useSelector,useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Cart from './Cart';
@@ -23,13 +23,15 @@ const [atHome,setAtHome] = useState(false)
 
 
     const ToggleTxt= useSelector(state=>state.product.ToggleTxt)
+    const CartList= useSelector(state=>state.product.CartList)
+    const Visited= useSelector(state=>state.product.Visited)
  useEffect(() => {
 
   
-  const isHomePage = location.pathname === '/';
+  const isHomePage = location.pathname === '/home';
   if (isHomePage) {
     setAtHome(true);
-    if (window.scrollY < 100 && atHome) {
+    if (window.scrollY < 1 && atHome) {
       setNavbarBgColor('bg-none text-white');
       setTxtColor('text-white');
     }
@@ -40,6 +42,10 @@ const [atHome,setAtHome] = useState(false)
   }
 },[window.scrollY,location.pathname,atHome,isToggled]);
 
+useEffect(()=>{
+
+  dispatch(ToggleVisit())
+},[])
 
 
 
@@ -60,16 +66,13 @@ const [atHome,setAtHome] = useState(false)
 
     }
   };
-  const Transition_notify =()=>{
-    setIsToggled(!isToggled)
-    setNavbar_switch("Navigation_Off")
-  }
+  
   
   const dispatch =useDispatch()
   return (
     <div className={`Navbar ${navbarBgColor} `}>
       
-<Link to={"/"}>
+<Link to={"/home"}>
 <img src="/Logo/SwiftMart.svg" alt="" className='logo ' />
 </Link>
 
@@ -81,7 +84,7 @@ const [atHome,setAtHome] = useState(false)
     
 <div className={`flex justify-between Navigation ${Navbar_switch}`}>
 
-<NavLink to={"/"}  className={(state) =>state.isActive? "Hme":""}><p >Home </p> </NavLink>
+<NavLink to={"/home"}  className={(state) =>state.isActive? "Hme":""}><p >Home </p> </NavLink>
 <NavLink to={"/products"} className={(state) =>state.isActive? "Hme":""}>
 
 <p>  Products</p></NavLink>
@@ -89,6 +92,10 @@ const [atHome,setAtHome] = useState(false)
 <p>
  Orders
 </p> 
+ {
+Visited&&
+   <p className='Order_Notify'>1</p>
+ }
 
 </NavLink>
 <NavLink to={"/AboutUsPage"}className={(state) =>state.isActive? "Hme":""}>
@@ -106,6 +113,10 @@ const [atHome,setAtHome] = useState(false)
 <IconButton onClick={()=>dispatch(ToggleCart())}>
 
 <img src={`/Logo/${atHome?"Cart.svg":"Cart-black.svg"}`}  />
+{CartList.length>0&&
+
+  <p className='Notify'>{CartList.length}</p>
+}
 </IconButton>
 <IconButton>
 
@@ -121,8 +132,9 @@ const [atHome,setAtHome] = useState(false)
  <input type="text" placeholder='Search' className='px-3'/>
   </div>
 <IconButton  onClick={()=>dispatch(ToggleCart())}>
-
 <img src={`/Logo/${atHome?"Cart.svg":"Cart-black.svg"}`} />
+
+<p className='Notify'>1</p>
 </IconButton>
 <IconButton>
 

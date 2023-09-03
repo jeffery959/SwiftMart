@@ -16,7 +16,7 @@ const Products = () => {
 
   useEffect(() => {
     const swiper = swiperRef.current?.swiper;
-    const interval =10000; // Set the interval for auto-scroll in milliseconds (e.g., 3 seconds).
+    const interval =5000; // Set the interval for auto-scroll in milliseconds (e.g., 3 seconds).
 
     const autoScroll = () => {
       swiper.slideNext(500); 

@@ -1,6 +1,7 @@
 .Orders-frame{
     padding:20px 15%;
-    @apply mt-1 h-screen justify-center ;
+    min-height:100vh;
+    @apply mt-1  justify-center ;
 }
 .Orders-frame>div{
     min-height:140px;
