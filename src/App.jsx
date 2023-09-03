@@ -34,7 +34,7 @@ const dispatch =useDispatch()
           <Routes>
             
             <Route path="/" element={<Layout />}>
-              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
               <Route path='/AboutUsPage' element={<AboutUs/>} />
               <Route path='/OrdersPage' element={<Orders/>} />

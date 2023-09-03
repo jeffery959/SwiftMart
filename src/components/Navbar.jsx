@@ -28,7 +28,7 @@ const [atHome,setAtHome] = useState(false)
  useEffect(() => {
 
   
-  const isHomePage = location.pathname === '/home';
+  const isHomePage = location.pathname === '/';
   if (isHomePage) {
     setAtHome(true);
     if (window.scrollY < 1 && atHome) {
@@ -70,7 +70,7 @@ const [atHome,setAtHome] = useState(false)
   return (
     <div className={`Navbar ${navbarBgColor} `}>
       
-<Link to={"/home"}>
+<Link to={"/"}>
 <img src="/Logo/SwiftMart.svg" alt="" className='logo ' />
 </Link>
 
@@ -82,7 +82,7 @@ const [atHome,setAtHome] = useState(false)
     
 <div className={`flex justify-between Navigation ${Navbar_switch}`}>
 
-<NavLink to={"/home"}  className={(state) =>state.isActive? "Hme":""}><p >Home </p> </NavLink>
+<NavLink to={"/"}  className={(state) =>state.isActive? "Hme":""}><p >Home </p> </NavLink>
 <NavLink to={"/products"} className={(state) =>state.isActive? "Hme":""}>
 
 <p>  Products</p></NavLink>
