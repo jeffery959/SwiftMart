@@ -1,10 +1,10 @@
 
 .Single-Main{
-
-    padding:0px 15%;
-    margin-bottom:clamp(0px,40%,200px);
+    min-height:100vh;
+   padding-top:clamp(0px,15%,200px);
+    @apply flex justify-center  mb-16;
 }
-.SinglePage{
+/* .SinglePage{
     height:85vh;
     @apply w-full mb-16 flex  justify-center items-center ;
 }
@@ -213,4 +213,4 @@
     }
     
 
-}
+} */

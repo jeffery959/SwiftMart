@@ -19,7 +19,7 @@ const Products = () => {
     const interval =5000; // Set the interval for auto-scroll in milliseconds (e.g., 3 seconds).
 
     const autoScroll = () => {
-      swiper.slideNext(500); 
+      swiper.slideNext(700); 
       
       
     };
@@ -44,7 +44,7 @@ const Products = () => {
   return (
     <div className=' Products  '>
       
-      <Swiper   slidesPerView={.999}
+      <Swiper   slidesPerView={1}
        loop={true}
         pagination={{
           clickable: true,

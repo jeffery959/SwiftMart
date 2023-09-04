@@ -1,7 +1,7 @@
 .Products{
 
     padding:10px 15% ;
-    margin-top:45px;
+    margin-top:105px;
 }
 .Product-view{
     @apply flex  justify-between flex-wrap gap-5 ;

@@ -10,7 +10,7 @@ import Checkout from './Pages/Checkout'
 import AboutUs from './Pages/AboutUs'
 import Orders from './Pages/Orders'
 import { useDispatch } from 'react-redux'
-
+import Text from './Pages/Text'
 import { useLocation } from 'react-router-dom';
 import { ToggleModal,ToggleVisit } from './app/features/productSlice'
 
@@ -41,6 +41,7 @@ const dispatch =useDispatch()
               <Route path='/SinglePage' element={<SinglePage/>} />
                <Route path="/products/:Id/:itemId" element={<SinglePage/>} />
                <Route path='/Checkout' element={<Checkout/>} />
+               <Route path='/Text' element={<Text/>} />
             </Route>
           </Routes>
     </div>

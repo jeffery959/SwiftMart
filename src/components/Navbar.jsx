@@ -25,24 +25,56 @@ const [atHome,setAtHome] = useState(false)
     const ToggleTxt= useSelector(state=>state.product.ToggleTxt)
     const CartList= useSelector(state=>state.product.CartList)
     const Visited= useSelector(state=>state.product.Visited)
+    const isHomePage = location.pathname === '/';
  useEffect(() => {
 
-  
-  const isHomePage = location.pathname === '/';
-  if (isHomePage) {
-    setAtHome(true);
-    if (window.scrollY < 1 && atHome) {
-      setNavbarBgColor('bg-none text-white');
-      setTxtColor('text-white');
+   
+   
+   if (isHomePage) {
+     setAtHome(true);
+     
+     setNavbarBgColor('bg-none text-white');
+     setTxtColor('text-white');
+    
+    } else {
+      setAtHome(false);
+      setNavbarBgColor('bg-white text-black');
+      setTxtColor('text-black');
     }
-  } else {
-    setAtHome(false);
-    setNavbarBgColor('bg-white text-black');
-    setTxtColor('text-black');
+  
+  },[location.pathname]);
+
+const  handleScroll=()=> {
+
+    
+    if (window.scrollY < 100 ) {
+      if(isHomePage){
+
+        
+        setAtHome(true);
+        
+        setNavbarBgColor('bg-none text-white');
+        setTxtColor('text-white');
+      }
+    } else {
+      setAtHome(false);
+      setNavbarBgColor('bg-white text-black');
+      setTxtColor('text-black');
+    }
   }
-},[window.scrollY,location.pathname,atHome,isToggled]);
+  
+  
+  useEffect(()=>{
+    
 
-
+    window.addEventListener("scroll",handleScroll)
+    
+    
+    
+    return ()=>{
+      window.removeEventListener("scroll",handleScroll)
+    }
+},[window.scrollY,location.pathname])
 
 
 
