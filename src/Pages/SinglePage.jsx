@@ -25,14 +25,14 @@ const addedItem=()=>{
 
 const ItemList =useSelector((state)=>state.product.ItemList)
   return (
-    <div className="Single-Main">
+    <div className="Single-Main ">
 
 
-<section class="text-gray-600 body-font overflow-hidden">
-  <div class="container px-5 py-5 mx-auto">
-    <div class="lg:w-4/5 mx-auto flex flex-wrap">
+<section class=" obody-font overflow-hidden ">
+  <div class="container px-5 py-5 mx-auto ">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap ">
       <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-96 object-cover object-center rounded" src={img}/>
-      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 text-gray-600">
         <h2 class="text-sm title-font text-gray-500 tracking-widest">SWIFT MART</h2>
         <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{name}</h1>
         <div class="flex mb-4">
@@ -107,6 +107,25 @@ const ItemList =useSelector((state)=>state.product.ItemList)
           </button>
         </div>
       </div>
+  <div className="container py-5 mx-auto mt-40">
+
+
+{
+ItemList.map((Deck)=>{
+
+if(parseInt(Id)===Deck.Id){
+
+  return  <Product_Deck Deck={Deck} itemId={itemId} key={Deck.Id} Category={"Related Items"}/>
+}else{
+  return
+}
+
+}
+
+
+)
+}
+</div>
     </div>
   </div>
 </section>
@@ -155,7 +174,7 @@ const ItemList =useSelector((state)=>state.product.ItemList)
   
   )
 } */}
-    
+
     </div>
   )
 

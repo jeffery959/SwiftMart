@@ -39,7 +39,6 @@ Unit:[
 
 const States=JSON.parse(localStorage.getItem("State"))
 
-console.log(States)
    
 export const productSlice = createSlice({
    name: 'product',
@@ -281,7 +280,6 @@ if(state.Modal==="-top-20"){
       state.Visited=true
 
     }
-    console.log(state.Visited)
    }
   }
   

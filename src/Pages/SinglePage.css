@@ -2,7 +2,7 @@
 .Single-Main{
     min-height:100vh;
    padding-top:clamp(0px,15%,200px);
-    @apply flex justify-center  mb-16;
+    @apply flex justify-center flex-col mb-16 mt-24;
 }
 /* .SinglePage{
     height:85vh;

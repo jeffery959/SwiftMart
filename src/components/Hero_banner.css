@@ -2,8 +2,16 @@
 .banner{
   width:100%;
   min-height:700px;
-  @apply flex;
+  @apply flex ;
   
+}
+.Company{
+  
+  padding:10px 15%;
+  width:96%;
+  
+  @apply  border-2  mt-10 flex justify-between items-center h-40 rounded-lg;
+
 }
 .Banner-text{
   font-size:clamp(0px,10vw,45px);
@@ -18,7 +26,26 @@
   @apply object-cover  p-0  w-full  ;
  
 }
+.Text-Main-banner{
+  
+  color:#0C8DE8;
+  font-size:clamp(0px,3vw,45px);
+  font-weight:500;
+  transition-duration:.4s;
+font-size:clamp(0px,4vw,20px);
+font-weight:700;
+border:#0C8DE8 solid 4px;
+padding:clamp(0px,5vw,20px) 0px;
+width:clamp(0px,20vw,900px);
+  @apply outline-none flex justify-center items-center ;
 
+}
+.Text-Main-banner:hover{
+  
+  color:white;
+  background:#0C8DE8;
+
+}
 
 
 
@@ -45,7 +72,7 @@ width:clamp(0px,80%,350px);
 }
 .Main-Grid{
   padding:10px 15%;
-  @apply mb-56 mt-28;
+  @apply py-44 w-full;
 }
 .New-Grid{
   display:grid;
@@ -115,6 +142,38 @@ width:clamp(0px,80%,310px);
               "b b c c" 25vh
               "b b c c" 25vh / 1fr 1fr 1fr 1fr;
     
+  }
+}
+
+
+@media(max-width:850px){
+
+  .Company{
+  
+    padding:10px 5%;
+    @apply h-24;
+  
+  }
+  .Main-Grid{
+    padding:10px 5%;
+    @apply py-10 ;
+  }
+  .Text-Main-banner{
+  width:clamp(0px,30vw,500px);
+  
+  }
+}
+@media(max-width:750px){
+
+  .Company{
+  
+    padding:10px 5%;
+    @apply h-16;
+  
+  }
+  .Text-Main-banner{
+  width:clamp(0px,70vw,700px);
+  
   }
 }
 .Text-Main-2>p{
