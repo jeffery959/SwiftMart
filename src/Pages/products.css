@@ -1,15 +1,14 @@
 .Products{
 
     padding:10px 15% ;
-    margin-top:155px;
+    margin-top:115px;
+    @apply w-full;
 }
 .Product-view{
     @apply flex  justify-between flex-wrap gap-5 ;
 }
 
-.Deck{
-  min-height:90vh;
-}
+
 .Products-tag{
     font-size:clamp(0px,10vw,40px);
     font-weight:600;

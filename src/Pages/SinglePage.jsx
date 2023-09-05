@@ -1,18 +1,26 @@
 
 import Star from "../components/Star";
 import "./SinglePage.css";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import { useState,useEffect } from "react";
 import Items from "../components/Items";
 import {Product_Deck} from "./Products"
 import { AddCart,Subtract,Add,ToggleModal } from "../app/features/productSlice";
-const SinglePage = () => {
+
+
+const SinglePage = ({color}) => {
+  const location =useLocation()
   const {Id,itemId}=useParams();
   const SingleItem = useSelector(state=>state.product.ItemList[Id].Unit[itemId])
-  const {price,name,img,qty}=SingleItem
+  const {price,name,img,Color}=SingleItem
+  const [image,setImage]=useState(img)
   const dispatch =useDispatch()
-console.log(SingleItem)
+useEffect(()=>{
+  setImage(img)
+
+},[location.pathname])
+
 
 const addedItem=()=>{
   dispatch(AddCart(SingleItem))
@@ -25,13 +33,13 @@ const addedItem=()=>{
 
 const ItemList =useSelector((state)=>state.product.ItemList)
   return (
-    <div className="Single-Main ">
+    <div className="Single-Main  bg-slate-100">
 
 
-<section className=" obody-font overflow-hidden ">
+<section className="Item-Single body-font overflow-hidden ">
   <div className="container px-5 py-5 mx-auto ">
     <div className="lg:w-4/5 mx-auto flex flex-wrap ">
-      <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto Image-product h-96 object-contain object-center rounded" src={img}/>
+      <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto Image-product h-96 object-contain object-center rounded" src={image}/>
       <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 text-gray-600">
         <h2 className="text-sm title-font text-gray-500 tracking-widest">SWIFT MART</h2>
         <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{name}</h1>
@@ -75,12 +83,18 @@ const ItemList =useSelector((state)=>state.product.ItemList)
         <p className="leading-relaxed">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.</p>
         <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
           <div className="flex">
-            <span className="mr-3">Color</span>
-            <button className="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
-            <button className="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
-            <button className="border-2 border-gray-300 ml-1 bg-blue-500 rounded-full w-6 h-6 focus:outline-none"></button>
+            <span className=" mr-3">Color</span>
+
+            {
+              Color?.map((itm,)=>{
+
+               return   <button key={itm.color} className={`border-2  ml-1 ${itm.color} rounded-full w-6 h-6 focus:outline-none` }onClick={()=>setImage(itm.img)}></button>
+              })
+            }
+          
+          
           </div>
-          <div className="flex ml-6 items-center">
+          <div className="flex ml-6 items-center ">
             <span className="mr-3">Size</span>
             <div className="relative">
               <select className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 text-base pl-3 pr-10">
@@ -103,7 +117,13 @@ const ItemList =useSelector((state)=>state.product.ItemList)
           
         </div>
       </div>
-  <div className="container mx-auto  mt-16 mb-20">
+    
+    </div>
+  </div>
+</section>
+<div className=" Related w-full bg-white">
+
+<div className="w-full  mt-16 mb-20">
 
 
 {
@@ -111,9 +131,9 @@ ItemList.map((Deck)=>{
 
 if(parseInt(Id)===Deck.Id){
 
-  return  <Product_Deck Deck={Deck} itemId={itemId} key={Deck.Id} Category={"Related Items"}/>
+return  <Product_Deck Deck={Deck} itemId={itemId} key={Deck.Id} Category={"Related Items"}/>
 }else{
-  return
+return
 }
 
 }
@@ -122,54 +142,8 @@ if(parseInt(Id)===Deck.Id){
 )
 }
 </div>
-    </div>
-  </div>
-</section>
+</div>
 
-
-    {/* <div className='SinglePage '>
-   <div className="SinglePage-View ">
-    <img src={img} alt="" className="" />
-    <div className="SinglePage-View-txt">
-      <div>
-
-     
-<Star/>
-<h3 className="mt-2">{name}</h3>
-<h4>Availability (In Stock)</h4>
-<h3 className="SinglePage-View-txt_price ">${price}<div className="hidden Mobile"><Star/> </div> </h3>
-<h4>Desciription</h4>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan, metus ut gravida euismod, est sapien finibus ligula, eu luctus neque ipsum vitae neque.</p>
-
-      </div>
-      <div className="Btn mt-8">
-        <div className="Btn-1">
-          <p>Qty</p>
-          <button onClick={()=>dispatch(Subtract(SingleItem))}>-</button>
-          <p>{qty}</p>
-          <button onClick={()=>dispatch(Add(SingleItem))}>+</button>
-
-        </div>
-        <button onClick={()=>addedItem()} >Add To Cart</button>
-      </div>
-    </div>
-   </div>
-    </div>
-    {
-  ItemList.map((Deck)=>{
-  
-  if(parseInt(Id)===Deck.Id){
-
-    return  <Product_Deck Deck={Deck} itemId={itemId} key={Deck.Id} Category={"Related Items"}/>
-  }else{
-    return
-  }
-
- }
-  
-  
-  )
-} */}
 
     </div>
   )

@@ -82,10 +82,7 @@ const Hero_banner = () => {
 <img src="\Images\PlayStation-Logo.wine.svg" alt="" className="w-1/5 hover:scale-105 duration-500 h-4/5 object-contain" />
 <img src="\Images\Addidas.webp" alt="" className="w-1/5 hover:scale-105 duration-500 h-full object-contain" />
 </div>
-<div className="md:mt-40  w-full ">
 
-<Item Deck={ItemList[3]} Category={ItemList[3].Category}/>
-</div>
     <section className="Main-Grid ">
     <h1 className="  Products-tag mb-20 mt-10 text-4xl text-center text-gray-800 ">Our Collections</h1>
   <div className="New-Grid screen  gap-2">
@@ -146,6 +143,10 @@ const Hero_banner = () => {
 
 
 </section>
+<div className="md:mt-20 mb-40  w-full ">
+
+<Item Deck={ItemList[3]} Category={ItemList[3].Category}/>
+</div>
 <div className="Bg-Hmebanner">
 
 <h1 className=" title-font  mb-20 Products-tag  text-4xl  text-center text-gray-800 ">Casual Collection</h1>
@@ -155,9 +156,9 @@ const Hero_banner = () => {
        pagination={{
           clickable: true,
         }} modules={[Pagination]} className="mySwiper  w-full" ref={swiperRef}>
-        <SwiperSlide><BigProduct Img={"/Images/Casual.jpg"}/></SwiperSlide>
+       <SwiperSlide><BigProduct Img={"/Images/Big_Banner.png"}/></SwiperSlide>
         <SwiperSlide><BigProduct Img={"/Images/Big_Banner_2.jpg"}/></SwiperSlide>
-        <SwiperSlide><BigProduct Img={"/Images/Pink-dress.jpg"}/></SwiperSlide>
+        <SwiperSlide><BigProduct Img={"/Images/Big_Baner_3.jpg"}/></SwiperSlide>
       </Swiper>
           </div>
 <section className="text-gray-400 body-font our-Team">

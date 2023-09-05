@@ -14,7 +14,7 @@ const Products = () => {
   const ItemList =useSelector((state)=>state.product.ItemList)
   const swiperRef = useRef(null);
 
-  useEffect(() => {
+/*   useEffect(() => {
     const swiper = swiperRef.current?.swiper;
     const interval =5000; // Set the interval for auto-scroll in milliseconds (e.g., 3 seconds).
 
@@ -40,10 +40,10 @@ const Products = () => {
     return () => {
       clearInterval(autoScrollInterval);
     };
-  }, []);
+  }, []); */
   return (
     <div className=' Products  '>
-      
+     {/*  
       <Swiper   slidesPerView={1}
        loop={true}
         pagination={{
@@ -52,11 +52,11 @@ const Products = () => {
         <SwiperSlide><BigProduct Img={"/Images/Big_Banner.png"}/></SwiperSlide>
         <SwiperSlide><BigProduct Img={"/Images/Big_Banner_2.jpg"}/></SwiperSlide>
         <SwiperSlide><BigProduct Img={"/Images/Big_Baner_3.jpg"}/></SwiperSlide>
-      </Swiper>
+      </Swiper> */}
 
   
       
-<div className='md:mt-40 mt-0'>
+<div className='mt-0'>
 {
   ItemList.map((Deck)=>{
   
@@ -139,7 +139,7 @@ const Product_Deck = ({Deck,itemId,Category})=>{
         </Swiper>
         ) : (
           
-          <div className='Product-view'>
+          <div className='Product-view mb-60'>
             
   {
     Deck.Unit.map(item=>{

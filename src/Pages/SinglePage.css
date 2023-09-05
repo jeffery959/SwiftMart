@@ -1,12 +1,26 @@
 
 .Single-Main{
     min-height:100vh;
-    @apply flex justify-center flex-col mb-16  mt-56  ;
+    @apply flex justify-center flex-col  pt-56;
 }
-
+.Item-Single{
+    min-height:80vh;
+}
+.Related{
+    padding:0px 15%;
+    @apply w-full  pt-56 pb-28;
+}
 .Image-product{
     max-width:450px;
     max-height:650px;
+}
+
+@media(max-width:850px){
+    
+    .Related{
+        padding:0px 5%;
+        @apply w-full  pt-56 pb-28;
+    }
 }
 /* .SinglePage{
     height:85vh;
