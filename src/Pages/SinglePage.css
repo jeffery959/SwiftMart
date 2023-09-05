@@ -1,8 +1,12 @@
 
 .Single-Main{
     min-height:100vh;
-   padding-top:clamp(0px,15%,200px);
-    @apply flex justify-center flex-col mb-16 mt-24;
+    @apply flex justify-center flex-col mb-16  mt-56  ;
+}
+
+.Image-product{
+    max-width:450px;
+    max-height:650px;
 }
 /* .SinglePage{
     height:85vh;

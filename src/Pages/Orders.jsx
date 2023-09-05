@@ -10,11 +10,12 @@ const Orders = () => {
 
    const location = useLocation()
     useEffect(()=>{
-      if(location.pathname!=="/OrdersPage"){
-       return 
+      if(location.pathname==="/OrdersPage"){
+        dispatch(ToggleVisit("Default"))
+       
+      }else{
+        
       }
-      console.log(location.pathname)
-      dispatch(ToggleVisit("Default"))
     },[location.pathname])
   return (
     <div className=" w-full  Orders-frame ">

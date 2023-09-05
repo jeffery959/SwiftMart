@@ -54,18 +54,23 @@ const Products = () => {
         <SwiperSlide><BigProduct Img={"/Images/Big_Baner_3.jpg"}/></SwiperSlide>
       </Swiper>
 
+  
+      
+<div className='md:mt-40 mt-0'>
 {
   ItemList.map((Deck)=>{
   
-  
-  return  <Product_Deck Deck={Deck} key={Deck.Id} Category={Deck.Category}/>
+    return    <Product_Deck Deck={Deck} key={Deck.Id} Category={Deck.Category}/>
 
  }
   
   
   )
 }
-    <div className=' Foot-banner mt-20 z-30 ' style={{backgroundImage:`url("/Images/Furnitures.jpg")`}}>
+
+</div>
+
+    <div className=' Foot-banner  mb-10 z-30 ' style={{backgroundImage:`url("/Images/Furnitures.jpg")`}}>
       <div className='w-full '>
 
       <div className='Foot-banner-Limited '>
@@ -78,6 +83,7 @@ const Products = () => {
 <button><p>Explore Now</p> </button>
 </div>
     </div>
+
     </div>
   )
 }
@@ -104,7 +110,7 @@ const Product_Deck = ({Deck,itemId,Category})=>{
       window.removeEventListener('resize', handleResize);
     };
   }, []);
- return  <>
+ return  <div className=''>
   <h3 className='Products-tag '>{Category}</h3>
   {isSmallScreen ? (
           
@@ -112,7 +118,7 @@ const Product_Deck = ({Deck,itemId,Category})=>{
           cssMode={true}
           
           spaceBetween={20}
-          slidesPerView={3}
+          slidesPerView={1.8}
           navigation={true}
           pagination={true}
           mousewheel={true}
@@ -144,10 +150,16 @@ const Product_Deck = ({Deck,itemId,Category})=>{
       return <Items item={item} key={item.id} Deck={Deck}/>
     })
   }
-  
+ 
+
   </div>
         )}
-        </>
+
+
+         
+  
+
+        </div>
 
 }
 
@@ -169,5 +181,5 @@ const BigProduct =({Img})=>{
       </div>)
 }
 
-export {Product_Deck}
+export {Product_Deck,BigProduct}
 export default memo( Products)

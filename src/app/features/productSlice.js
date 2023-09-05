@@ -1,15 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 
-const DataBase=[{
+const DataBase=[
+  
+  {
 Id:0,
 Category:"Featured product",
 Unit:[
  
   
-  {UnitId:0,id:0,price:249.99, qty:1,name:"Suit",img:"/Images/Product-img/Suit-guy.jpg"},
-  {UnitId:0,id:1,price:55, qty:1,name:"Sweater",img:"/Images/Product-img/Gray-Shirt.jpg"},
-  {UnitId:0,id:2,price:34.99, qty:1,name:"Pants",img:"/Images/Product-img/Jeans.jpg"},
+  {UnitId:0,id:0,price:249.99, qty:1,name:"Suit",img:"/Images/Product-img/Suit.jpg"},
+  {UnitId:0,id:1,price:55, qty:1,name:"Sweater",img:"/Images/Product-img/Sweater.jpg"},
+  {UnitId:0,id:2,price:34.99, qty:1,name:"Pants",img:"/Images/Product-img/Pant.jpg"},
   {UnitId:0,id:3,price:20, qty:1,name:"Hoddy",img:"/Images/Product-img/Hoddy.jpg"},
 ]
 },
@@ -18,10 +20,10 @@ Unit:[
   Unit:[
   
     
-    {UnitId:1,id:0,price:849.99, qty:1,name:"Iphone",img:"/Images/Product-img/Iphone.png"},
-    {UnitId:1,id:1,price:1055, qty:1,name:"Pc",img:"/Images/Product-img/Pc.jpg"},
-    {UnitId:1,id:2,price:84.99, qty:1,name:"Airpods",img:"/Images/Product-img/Airpods.jpg"},
-    {UnitId:1,id:3,price:34.99, qty:1,name:"HeadPhones",img:"/Images/Product-img/Headphones.png"},
+    {UnitId:1,id:0,price:849.99, qty:1,name:"Iphone",img:"/Images/Product-img/Iphone.jpg"},
+    {UnitId:1,id:1,price:999.99, qty:1,name:"Gaming Desktop",img:"/Images/Product-img/Desktop.jpg"},
+    {UnitId:1,id:2,price:84.99, qty:1,name:"Airpods",img:"/Images/Product-img/Airpod.jpg"},
+    {UnitId:1,id:3,price:34.99, qty:1,name:"HeadPhones",img:"/Images/Product-img/Headphone.jpg"},
   ]
   },
 {Id:2,
@@ -29,12 +31,25 @@ Unit:[
   Unit:[
   
     
-    {UnitId:2,id:0,price:79.99, qty:1,name:"Nike",img:"/Images/Product-img/Color-Shoe.png"},
-    {UnitId:2,id:1,price:55, qty:1,name:"Shoe",img:"/Images/Product-img/Sneakers.png"},
-    {UnitId:2,id:2,price:54.99, qty:1,name:"Crocs",img:"/Images/Product-img/Crocs.png"},
-    {UnitId:2,id:3,price:44.99, qty:1,name:"Canvas",img:"/Images/Product-img/Canvas.png"},
+    {UnitId:2,id:0,price:79.99, qty:1,name:"Sneakers",img:"/Images/Product-img/Shoe.jpg"},
+    {UnitId:2,id:1,price:55.00, qty:1,name:"Nike-Sneakers",img:"/Images/Product-img/Nike.jpg"},
+    {UnitId:2,id:2,price:54.99, qty:1,name:"Crocs",img:"/Images/Product-img/Crocs.jpg"},
+    {UnitId:2,id:3,price:44.99, qty:1,name:"Canvas",img:"/Images/Product-img/Canvas.jpg"},
   ]
-  }
+  },
+  
+  {Id:3,
+    Category:"OnSale",
+    Unit:[
+    
+      
+      {UnitId:3,id:0,price:249.99, qty:1,name:"SmartTv",img:"/Images/Product-img/Tv.jpg"},
+      {UnitId:3,id:1,price:99.99, qty:1,name:"Camera",img:"/Images/Product-img/Camera.jpg"},
+      {UnitId:3,id:2,price:54.99, qty:1,name:"Fan",img:"/Images/Product-img/Fan.jpg"},
+      {UnitId:3,id:3,price:44.99, qty:1,name:"Speakers",img:"/Images/Product-img/Speaker.jpg"},
+    ]
+    },
+ 
 ]
 
 const States=JSON.parse(localStorage.getItem("State"))

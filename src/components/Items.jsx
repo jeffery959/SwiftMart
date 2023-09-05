@@ -32,7 +32,7 @@ const Item = ({item,Deck}) => {
         </div>
         <div className='flex justify-center ItemContainer_Info_Icon ' onClick={()=> AddToCart()}>
 
-         <img src="\Logo\Add-Cart.svg" alt="" />
+         <img src="\Logo\Add-Cart.svg" alt="" className='' />
         </div>
 
       </div>

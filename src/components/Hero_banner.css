@@ -1,16 +1,27 @@
-
+.Product-Hme{
+  
+  padding:10px 15%;
+}
 .banner{
   width:100%;
-  min-height:700px;
-  @apply flex ;
+  min-height:750px;
   
+}
+.Bg-Hmebanner{
+  padding:10px 15%;
+  @apply w-full
+  
+}
+.our-Team{
+  padding:10px 15%;
+@apply mb-28;
 }
 .Company{
   
-  padding:10px 15%;
+  padding:10px 8%;
   width:96%;
   
-  @apply  border-2  mt-10 flex justify-between items-center h-40 rounded-lg;
+  @apply  border-2 shadow-md mx-0 mt-16 flex justify-between items-center h-40 rounded-lg;
 
 }
 .Banner-text{
@@ -71,15 +82,14 @@ width:clamp(0px,80%,350px);
   height:60%;
 }
 .Main-Grid{
-  padding:10px 15%;
-  @apply py-44 w-full;
+  padding:0px 15%;
+  @apply py-28 w-full;
 }
 .New-Grid{
   display:grid;
   grid-template: 
-            "a a a a" 40vh
-            "b b c c" 20vh
-            "b b c c" 20vh / 1fr 1fr 1fr 1fr;
+            "a a b b" 30vh 
+            "c c d d" 30vh / 1fr 1fr 1fr 1fr
   
 }
 
@@ -94,7 +104,7 @@ width:clamp(0px,80%,350px);
 }
 #Col-2{
   grid-area: b;
-  background:url("/Images/Controller.jpg");
+  background:url("/Images/Product-img/playstation-5-fd-1920x1080-1.webp");
   
   background-size: cover;
   background-repeat: no-repeat;    
@@ -110,11 +120,19 @@ width:clamp(0px,80%,350px);
   background-position: center center;
 
 }
+#Col-4{
+  grid-area: d;
+  background:url("/Images/Mens.jpg");
+  
+  background-size: cover;
+  background-repeat: no-repeat;    
+  background-position: center center;
+
+}
 .Text-Main>p{
   color:#F08300;
-  width:35ch;
-  font-size:clamp(0px,3vw,45px);
   font-weight:500;
+  font-size:clamp(0px,7vw,35px);
   margin-bottom:10%;
   padding: 0px;
 }
@@ -125,33 +143,34 @@ font-size:clamp(0px,4vw,20px);
 font-weight:700;
 border:#F78F2D solid 4px;
 padding:clamp(0px,5%,20px) 0px;
-width:clamp(0px,70%,250px);
+width:clamp(0px,70%,350px);
   @apply outline-none flex justify-center items-center ;
 }
 .Text-Main>a:hover{
   color:white;
   background:#F78F2D ;
-width:clamp(0px,80%,310px);
+width:clamp(0px,85%,450px);
 }
 
 @media(max-width:1250px){
-  .New-Grid{
-    display:grid;
-    grid-template: 
-              "a a a a" 55vh
-              "b b c c" 25vh
-              "b b c c" 25vh / 1fr 1fr 1fr 1fr;
-    
-  }
+
 }
 
 
 @media(max-width:850px){
+  .Product-Hme{
+  
+    padding:10px 5%;
+  }
+  .our-Team{
+    padding:0px 5%;
+  
+  }
 
   .Company{
   
     padding:10px 5%;
-    @apply h-24;
+    @apply h-24 mt-5;
   
   }
   .Main-Grid{
@@ -164,11 +183,13 @@ width:clamp(0px,80%,310px);
   }
 }
 @media(max-width:750px){
+  .Text-Main>a{
+  padding:clamp(0px,5%,10px) 0px;
+  }
 
   .Company{
   
     padding:10px 5%;
-    @apply h-16;
   
   }
   .Text-Main-banner{
@@ -177,12 +198,14 @@ width:clamp(0px,80%,310px);
   }
 }
 .Text-Main-2>p{
-  color:#0C8DE8;
+  color:white;
 
   font-size:clamp(0px,7vw,35px);
   font-weight:500;
   margin-bottom:10%;
+  
   padding: 0px;
+  width:95%;
 
 }
 .Text-Main-2>a{
@@ -190,15 +213,15 @@ width:clamp(0px,80%,310px);
   transition-duration:.4s;
   font-size:clamp(0px,4vw,20px);
   font-weight:700;
-  border:#0C8DE8 solid 4px;
+  border:white solid 4px;
   padding:clamp(0px,5%,20px) 0px;
   width:clamp(0px,80%,250px);
   @apply outline-none flex justify-center items-center ;
   
 }
 .Text-Main-2>a:hover{
-  color:white;
-  background:#0C8DE8 ;
+  color:black;
+  background:white ;
   width:clamp(0px,80%,310px);
   
 }
@@ -225,5 +248,30 @@ width:clamp(0px,80%,310px);
   
   color:white;
   background:#651D1B;;
+  width:clamp(0px,80%,310px);
+}
+.Text-Main-4>a{
+  color:white;
+  transition-duration:.4s;
+  font-size:clamp(0px,4vw,20px);
+  font-weight:700;
+  border:#23517B solid 4px;
+  padding:clamp(0px,5%,20px) 0px;
+  width:clamp(0px,80%,250px);
+  @apply outline-none flex justify-center items-center ;
+}
+.Text-Main-4>p{
+  color:#23517B;
+
+  font-size:clamp(0px,7vw,35px);
+  font-weight:500;
+  margin-bottom:10%;
+  padding: 0px;
+  
+}
+.Text-Main-4>a:hover{
+  
+  color:white;
+  background:#23517B;
   width:clamp(0px,80%,310px);
 }
