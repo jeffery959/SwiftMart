@@ -18,7 +18,7 @@
 @media(max-width:850px){
     
 .Single-Main{
-    @apply   pt-6;
+    @apply   pt-12;
 }
     
     .Related{
