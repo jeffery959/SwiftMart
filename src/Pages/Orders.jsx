@@ -51,7 +51,7 @@ const OrderItem=({Item})=>{
 const {name,price,img,qty}=Item
   return  (
       <div className="Orders-Item">
-                <img src={img} alt="" />
+                <img src={img} alt="" className="object-contain" />
                 <p>{name}</p>
                 <p>{price}</p>
                 <p>#332448</p>

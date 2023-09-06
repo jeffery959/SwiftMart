@@ -145,7 +145,27 @@ Unit:[
   
     
     {UnitId:2,id:0,price:79.99, qty:1,name:"Sneakers",img:"/Images/Product-img/Shoe.png"},
-    {UnitId:2,id:1,price:55.00, qty:1,name:"Nike-Sneakers",img:"/Images/Product-img/Nike.png"},
+    {UnitId:2,id:1,price:55.00, qty:1,name:"Nike-Sneakers",img:"/Images/Product-img/Nike/Color/Nike-Blue.png",Color:[
+      
+      
+      {
+        color:"bg-gray-900",
+        img:"/Images/Product-img/Nike/Color/Nike-Black.png"
+    
+      }
+      ,
+      {
+        color:"bg-red-500",
+        img:"/Images/Product-img/Nike/Color/Nike-Red.png"
+    
+      }
+      ,
+      {
+        color:"bg-blue-900 ",
+        img:"/Images/Product-img/Nike/Color/Nike-Blue.png"
+    
+      }
+    ]},
     {UnitId:2,id:2,price:54.99, qty:1,name:"Crocs",img:"/Images/Product-img/Crocs.png"},
     {UnitId:2,id:3,price:44.99, qty:1,name:"Canvas",img:"/Images/Product-img/Canvas.png"},
   ]
@@ -160,6 +180,111 @@ Unit:[
       {UnitId:3,id:1,price:99.99, qty:1,name:"Camera",img:"/Images/Product-img/Camera.png"},
       {UnitId:3,id:2,price:54.99, qty:1,name:"Fan",img:"/Images/Product-img/Fan.png"},
       {UnitId:3,id:3,price:44.99, qty:1,name:"Speakers",img:"/Images/Product-img/Speaker.png"},
+    ]
+    },
+  {Id:4,
+    Category:"Our Product",
+    Unit:[
+    
+      {UnitId:4,id:0,price:249.99, qty:1,name:"Suit",img:"/Images/Product-img/Suit/Color/Suit-Green.png",Color:[
+        {
+          color:"bg-green-900",
+          img:"/Images/Product-img/Suit/Color/Suit-Green.png"
+      
+        },
+        {
+          color:"bg-red-800",
+          img:"/Images/Product-img/Suit/Color/Suit-Red.png"
+      
+        },
+        {
+          color:"bg-blue-800",
+          img:"/Images/Product-img/Suit/Color/Suit-Blue.png"
+      
+        }
+      ]},
+      {UnitId:4,id:1,price:55, qty:1,name:"Sweater",img:"/Images/Product-img/Sweater/Color/Sweater-Black.png",Color:[
+        {
+          color:"bg-gray-900",
+          img:"/Images/Product-img/Sweater/Color/Sweater-Black.png"
+      
+        },
+        {
+          color:"bg-red-700",
+          img:"/Images/Product-img/Sweater/Color/Sweater-Red.png"
+      
+        },
+        {
+          color:"bg-white",
+          img:"/Images/Product-img/Sweater/Color/Sweater-White.png"
+      
+        }
+      ]},
+      {UnitId:4,id:2,price:34.99, qty:1,name:"Pants",img:"/Images/Product-img/Pants/Color/pants-Black.png",Color:[
+        {
+          color:"bg-gray-900",
+          img:"/Images/Product-img/Pants/Color/pants-Black.png"
+      
+        },
+        {
+          color:"bg-green-600",
+          img:"/Images/Product-img/Pants/Color/pants-Green.png"
+      
+        },
+        {
+          color:"bg-blue-800",
+          img:"/Images/Product-img/Pants/Color/pants-Blue.png"
+      
+        }
+      ]},
+      {UnitId:4,id:3,price:20, qty:1,name:"Hoddy",img:"/Images/Product-img/Hoddy/Color/Hoddy-Black.png",Color:[
+        {
+          color:"bg-gray-900",
+          img:"/Images/Product-img/Hoddy/Color/Hoddy-Black.png"
+      
+        },
+        {
+          color:"bg-green-900",
+          img:"/Images/Product-img/Hoddy/Color/Hoddy-Green.png"
+      
+        },
+        {
+          color:"bg-yellow-400",
+          img:"/Images/Product-img/Hoddy/Color/Hoddy-Yellow.png"
+      
+        }
+      ]},
+      {UnitId:4,id:4,price:79.99, qty:1,name:"Sneakers",img:"/Images/Product-img/Shoe.png"},
+      {UnitId:4,id:5,price:55.00, qty:1,name:"Nike-Sneakers",img:"/Images/Product-img/Nike/Color/Nike-Blue.png",Color:[
+        
+        
+        {
+          color:"bg-gray-900",
+          img:"/Images/Product-img/Nike/Color/Nike-Black.png"
+      
+        }
+        ,
+        {
+          color:"bg-red-500",
+          img:"/Images/Product-img/Nike/Color/Nike-Red.png"
+      
+        }
+        ,
+        {
+          color:"bg-blue-900 ",
+          img:"/Images/Product-img/Nike/Color/Nike-Blue.png"
+      
+        }
+      ]},
+      {UnitId:4,id:6,price:54.99, qty:1,name:"Crocs",img:"/Images/Product-img/Crocs.png"},
+      {UnitId:4,id:7,price:44.99, qty:1,name:"Canvas",img:"/Images/Product-img/Canvas.png"},
+      {UnitId:4,id:8,price:249.99, qty:1,name:"SmartTv",img:"/Images/Product-img/Tv.png"},
+      {UnitId:4,id:9,price:99.99, qty:1,name:"Camera",img:"/Images/Product-img/Camera.png"},
+      {UnitId:4,id:10,price:54.99, qty:1,name:"Fan",img:"/Images/Product-img/Fan.png"},
+      {UnitId:4,id:11,price:44.99, qty:1,name:"Speakers",img:"/Images/Product-img/Speaker.png"},
+     
+    ,
+   
     ]
     },
  
@@ -260,11 +385,12 @@ if(state.Modal==="-top-20"){
        return {...state,ItemList:ItemList,CartList:newCart}
        
       }else{
-        state.CartList.push(action.payload) 
-        localStorage.setItem("State",JSON.stringify(state))
         
+        localStorage.setItem("State",JSON.stringify({...state,CartList:[...state.CartList,action.payload]}))
+        return {...state,CartList:[...state.CartList,action.payload]}
         
       }
+        
       
    },
    Subtract:(state,action)=>{

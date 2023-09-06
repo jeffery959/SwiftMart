@@ -4,8 +4,9 @@ import "./Items.css"
 
 import { useDispatch} from 'react-redux';
 import { AddCart,ToggleModal,ChangeTxt } from '../app/features/productSlice'
+import { SwiperSlide } from 'swiper/react';
 
-const Item = ({item,Deck}) => {
+const Item = ({item,Deck,Color}) => {
   
   const dispatch = useDispatch()
   const {price,name,img,id}=item
@@ -20,10 +21,12 @@ const Item = ({item,Deck}) => {
     },3000)
   } 
   return (
-    <div className='ItemContainer '>
+    
+    <div className='ItemContainer  '>
+      
       <Link to={`/products/${Deck.Id}/${id}`}  >
         
-      <img src={img} alt="" className="ImgLink" />  
+      <img src={img} alt="" className={`ImgLink ${Color}`}  />  
              </Link>
       <div className='ItemContainer_Info mt-4'>
         <div>

@@ -26,7 +26,7 @@ const [atHome,setAtHome] = useState(false)
     const CartList= useSelector(state=>state.product.CartList)
     const Visited= useSelector(state=>state.product.Visited)
     const isHomePage = location.pathname === '/';
- useEffect(() => {
+/*  useEffect(() => {
 
    
    
@@ -75,7 +75,7 @@ const  handleScroll=()=> {
       window.removeEventListener("scroll",handleScroll)
     }
 },[window.scrollY,location.pathname])
-
+ */
 
 
 
@@ -100,7 +100,7 @@ const  handleScroll=()=> {
   
   const dispatch =useDispatch()
   return (
-    <div className={`Navbar ${navbarBgColor} `}>
+    <div className={`Navbar bg-white `}>
       
 <Link to={"/"}>
 <img src="/Logo/SwiftMart.svg" alt="" className='logo ' />
@@ -150,7 +150,7 @@ Visited&&
 </IconButton>
 <IconButton>
 
-<img src={`/Logo/${atHome?"User.svg":"User-black.svg"}`}/>
+<img src={`/Logo/User-black.svg`}/>
 </IconButton>
 </div>
 </div>
@@ -170,7 +170,7 @@ Visited&&
 </IconButton>
 <IconButton>
 
-<img src={`/Logo/${atHome?"User.svg":"User-black.svg"}`}/>
+<img src={`/Logo/User-black.svg`}/>
 </IconButton>
 
 </div>
@@ -178,7 +178,7 @@ Visited&&
 {
   isToggled?
   
-  <MenuIcon className={`${txtColor}  z-50`} />:<CloseIcon className={`text-white z-50` } />
+  <MenuIcon className={`text-black z-50`} />:<CloseIcon className={`text-white z-50` } />
 }
 
 

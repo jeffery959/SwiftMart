@@ -44,7 +44,7 @@
    min-width:clamp(0px,100%,900px);
    height:100px;
    
-    @apply rounded-lg object-cover;
+    @apply rounded-lg ;
 }
 @media (max-width:950px){
     

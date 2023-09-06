@@ -110,9 +110,10 @@ const Product_Deck = ({Deck,itemId,Category})=>{
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+  console.log(Deck)
  return  <div className=''>
   <h3 className='Products-tag '>{Category}</h3>
-  {isSmallScreen ? (
+ {isSmallScreen ? (
           
           <Swiper
           cssMode={true}
@@ -128,7 +129,7 @@ const Product_Deck = ({Deck,itemId,Category})=>{
           >
           {
             Deck.Unit.map(item=>{
-              if(itemId==item.id){
+              if(itemId==item?.id){
                 
                 return
               }
@@ -137,27 +138,30 @@ const Product_Deck = ({Deck,itemId,Category})=>{
             })
           }
         </Swiper>
+        
         ) : (
           
           <div className='Product-view mb-60'>
             
   {
     Deck.Unit.map(item=>{
-      if(itemId==item.id){
+      if(itemId==item?.id){
 
         return
       }
-      return <Items item={item} key={item.id} Deck={Deck}/>
+      return <Items item={item} key={item.id} Deck={Deck} />
     })
-  }
+  } 
  
 
-  </div>
+  </div> 
         )}
+  
+
+
 
 
          
-  
 
         </div>
 

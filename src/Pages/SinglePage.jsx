@@ -30,10 +30,16 @@ const addedItem=()=>{
     dispatch(ToggleModal())
   },3000)
 }
-
+const Select=(itm)=>{
+  
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+  setImage(itm.img)
+}
 const ItemList =useSelector((state)=>state.product.ItemList)
   return (
     <div className="Single-Main  bg-slate-100">
+      
 
 
 <section className="Item-Single body-font overflow-hidden ">
@@ -88,7 +94,7 @@ const ItemList =useSelector((state)=>state.product.ItemList)
             {
               Color?.map((itm,)=>{
 
-               return   <button key={itm.color} className={`border-2  ml-1 ${itm.color} rounded-full w-6 h-6 focus:outline-none` }onClick={()=>setImage(itm.img)}></button>
+               return   <button key={itm.color} className={`border-2  ml-1 ${itm.color} rounded-full w-6 h-6 focus:outline-none` }onClick={()=>Select(itm)}></button>
               })
             }
           
@@ -113,7 +119,7 @@ const ItemList =useSelector((state)=>state.product.ItemList)
         </div>
         <div className="flex">
           <span className="title-font font-medium text-2xl text-gray-900">${price}</span>
-          <button className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded" onClick={()=>addedItem()}>Add to Cart </button>
+          <button className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-2  sm:px-6 focus:outline-none hover:bg-blue-600 rounded text-sm sm:text-lg" onClick={()=>addedItem()}>Add to Cart </button>
           
         </div>
       </div>

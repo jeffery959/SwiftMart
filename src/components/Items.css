@@ -4,9 +4,9 @@
    margin-bottom:50px;
 }
 .ImgLink{
-   max-width:100%;
+   min-width:90%;
    height:80%;
-   @apply object-contain rounded-md duration-500;
+   @apply object-contain  rounded-md duration-500;
 }
 .ImgLink:hover{
   
