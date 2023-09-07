@@ -17,40 +17,14 @@ import { Tune } from "@mui/icons-material"
 const Hero_banner = () => {
   const swiperRef = useRef(null);
 
- /*  useEffect(() => {
-    const swiper = swiperRef.current?.swiper;
-    const interval =5000; // Set the interval for auto-scroll in milliseconds (e.g., 3 seconds).
 
-    const autoScroll = () => {
-      swiper.slideNext(700); 
-      
-      
-    };
-
-   let autoScrollInterval = setInterval(autoScroll, interval);
-
-    // Pause auto-scrolling when the user interacts with the swiper.
-    swiper?.el.addEventListener('mouseover', () => {
-      clearInterval(autoScrollInterval);
-    });
-
-    // Resume auto-scrolling when the user stops interacting with the swiper.
-    swiper?.el.addEventListener('mouseleave', () => {
-      clearInterval(autoScrollInterval);
-      autoScrollInterval = setInterval(autoScroll, interval);
-    });
-
-    return () => {
-      clearInterval(autoScrollInterval);
-    };
-  }, []); */
   const ItemList =useSelector((state)=>state.product.ItemList)
 
   return (
 
     
 
-    <div className=" w-full  flex flex-col justify-center items-center ">
+    <div className="   flex flex-col justify-center items-center ">
 
     
     <section className="text-black body-font w-full  banner  ">
@@ -129,7 +103,7 @@ const Hero_banner = () => {
 
 <div className="md:mt-20 flex  justify-center w-full  ">
 
-<Item Deck={ItemList[4]} Category={ItemList[4].Category}/>
+<Item Deck={ItemList[3]} Category={ItemList[3].Category}/>
 
 </div>
 <SinglePage/>

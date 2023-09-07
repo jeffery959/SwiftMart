@@ -9,8 +9,8 @@ import SinglePage from './Pages/SinglePage'
 import Checkout from './Pages/Checkout'
 import AboutUs from './Pages/AboutUs'
 import Orders from './Pages/Orders'
-import { useDispatch } from 'react-redux'
-import Text from './Pages/Text'
+import { useDispatch,useSelector } from 'react-redux'
+import Test from './components/Test'
 import { useLocation } from 'react-router-dom';
 import { ToggleModal,ToggleVisit } from './app/features/productSlice'
 
@@ -27,12 +27,14 @@ function App() {
 
 
 const dispatch =useDispatch()
+const CartDisplay =useSelector(state=>state.product.CartDisplay)
+console.log(CartDisplay)
   return (
     
-    <div className="App">
+    <div className={`App w-full `}>
 
           <Routes>
-            
+            <Route path='/test' element={<Test/>}/>
             <Route path="/" element={<Layout />}>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />

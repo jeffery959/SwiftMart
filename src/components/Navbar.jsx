@@ -1,191 +1,70 @@
 import React,{useEffect,useState} from 'react'
-import "./Navbar.css";
-import MenuIcon from '@mui/icons-material/Menu';
 import { IconButton } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import Modal from './Modal';
-import { ToggleCart, ToggleVisit } from '../app/features/productSlice';
 import { useSelector,useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Cart from './Cart';
+import { ToggleCart } from '../app/features/productSlice';
+import Cart from "./Cart"
 const Navbar = () => {
-const [navbarBgColor, setNavbarBgColor] = useState('');
-const [txtColor, setTxtColor] = useState('text-white');
-const [Navbar_switch, setNavbar_switch] = useState('Navigation_Off');
-const [isToggled, setIsToggled] = useState(true);
-const [atHome,setAtHome] = useState(false)
+  
+  const [toggleMenu,setToggleMenu]=useState(false)
+  const  [toggleCart,setToggleCart]=useState(false)
   const location = useLocation();
 
 
 
+   const handleToggleMenu = () => {
+    setToggleMenu(!toggleMenu)
+    console.log(toggleMenu)
 
-
-    const ToggleTxt= useSelector(state=>state.product.ToggleTxt)
-    const CartList= useSelector(state=>state.product.CartList)
-    const Visited= useSelector(state=>state.product.Visited)
-    const isHomePage = location.pathname === '/';
-/*  useEffect(() => {
-
-   
-   
-   if (isHomePage) {
-     setAtHome(true);
-     
-     setNavbarBgColor('bg-none text-white');
-     setTxtColor('text-white');
-    
-    } else {
-      setAtHome(false);
-      setNavbarBgColor('bg-white text-black');
-      setTxtColor('text-black');
-    }
-  
-  },[location.pathname]);
-
-const  handleScroll=()=> {
-
-    
-    if (window.scrollY < 100 ) {
-      if(isHomePage){
-
-        
-        setAtHome(true);
-        
-        setNavbarBgColor('bg-none text-white');
-        setTxtColor('text-white');
-      }
-    } else {
-      setAtHome(false);
-      setNavbarBgColor('bg-white text-black');
-      setTxtColor('text-black');
-    }
-  }
-  
-  
-  useEffect(()=>{
-    
-
-    window.addEventListener("scroll",handleScroll)
-    
-    
-    
-    return ()=>{
-      window.removeEventListener("scroll",handleScroll)
-    }
-},[window.scrollY,location.pathname])
- */
-
-
-
-
-   const handleToggle = () => {
-    
- setIsToggled(!isToggled)
-   
-
-    
-    if(isToggled){
-
-      setNavbar_switch("Navigation_ON")
-
-    }
-    else{
-      setNavbar_switch("Navigation_Off")
-
-    }
   };
-  
-  
   const dispatch =useDispatch()
+  
+  const CartList= useSelector(state=>state.product.CartList)
   return (
-    <div className={`Navbar bg-white `}>
-      
-<Link to={"/"}>
-<img src="/Logo/SwiftMart.svg" alt="" className='logo ' />
-</Link>
+    <div className='flex justify-center w-full  border fixed top-0 z-30  bg-white'>
 
-<div className={`flex justify-between  widget  `}>
-     <Modal Txt={ToggleTxt}/>
+    <Cart toggleCart={toggleCart} setToggleCart={setToggleCart}/> 
+<nav className='flex py-5  lg:py-0   justify-between   px-5 sm:px-20 lg:w-3/4 lg:max-w-Navbar  w-full'>
+  <div className={`lg:w-full lg:justify-between lg:flex-row lg:items-center lg:h-24 flex flex-col  justify-start  lg:duration-0 duration-700 ${toggleMenu?"h-80":"h-12 "} overflow-hidden lg:overflow-visible `}>
 
-  
-   <Cart/> 
-    
-<div className={`flex justify-between Navigation ${Navbar_switch}`}>
+<h3 className='text-xl font-medium my-3 lg:text-2xl '>SwiftMart</h3>
 
-<NavLink to={"/"}  className={(state) =>state.isActive? "Hme":""}><p >Home </p> </NavLink>
-<NavLink to={"/products"} className={(state) =>state.isActive? "Hme":""}>
-
-<p>  Products</p></NavLink>
-<NavLink to={"/OrdersPage"} className={(state) =>state.isActive? "Hme":""} > 
-<p>
- Orders
-</p> 
- {
-Visited&&
-   <p className='Order_Notify'>1</p>
- }
-
-</NavLink>
-<NavLink to={"/AboutUsPage"}className={(state) =>state.isActive? "Hme":""}>
-<p>AboutUs</p></NavLink>
-
-
-
+<div className={`lg:flex-row flex lg:min-h-0 lg:h-auto my-5 text-slate-700 min-h-custom text-base flex-col  w-6/12 max-w-xl justify-between duration-700 font-semibold`}>
+ <NavLink to={"/"} className={(state) =>state.isActive? "text-primary border-primary ":""}><p className=' hover:text-primary border-primary duration-500'>Home</p></NavLink>
+<p className=' hover:text-primary border-primary duration-500'>Category</p>
+ <NavLink to={"/products"}  className={(state) =>state.isActive? "text-primary border-primary ":""}><p className=' hover:text-primary border-primary duration-500'> Shop</p></NavLink>
+ <NavLink to={"/OrdersPage"}  className={(state) =>state.isActive? "text-primary border-primary ":""}><p className=' hover:text-primary border-primary duration-500'> Orders</p></NavLink>
+ <NavLink to={"/AboutUsPage"}  className={(state) =>state.isActive? "text-primary border-primary ":""}><p className=' hover:text-primary border-primary duration-500 '> About</p></NavLink>
 </div>
-<div className='Navigation-img '>
-  <div className='Navigation-img-search flex justify-center  rounded-lg items-center p-2  '>
-  <img src="/Logo/Search.svg" alt="" />
 
- <input type="text" placeholder='Search' className='px-3'/>
+<div className={`flex  justify-between items-center gap-2 min-h-custom_2  `}>
+ <IconButton>
+ <img src="\Icons\Search.svg" alt="" className='w-5 ' />
+
+ </IconButton>
+ <IconButton>
+ <img src="\Icons\User.svg" alt="" className='w-5'/>
+ </IconButton>
+ <IconButton onClick={()=>dispatch(ToggleCart())}>
+ <img src="\Icons\Cart.svg" alt="" className='w-5'/>
+ </IconButton>{
+CartList.length>0&&
+   <p className=' relative right-7 text-xs bottom-2 bg-primary w-4 h-4 text-white flex justify-center items-center rounded-full'>{CartList.length}</p>
+  }
+ </div>     
+
+
+ 
   </div>
-<IconButton onClick={()=>dispatch(ToggleCart())}>
-
-<img src={`/Logo/${atHome?"Cart.svg":"Cart-black.svg"}`}  />
-{CartList.length>0&&
-
-  <p className='Notify'>{CartList.length}</p>
-}
-</IconButton>
-<IconButton>
-
-<img src={`/Logo/User-black.svg`}/>
-</IconButton>
-</div>
-</div>
-{false ?<div></div>:<div className={`Menu hidden  `}>
-<div className='Navigation-img-mobile '>
-  <div className='Navigation-img-search flex justify-center  rounded-lg items-center p-2  '>
-  <img src="/Logo/Search.svg" alt="" />
-
- <input type="text" placeholder='Search' className='px-3'/>
+ <div className='lg:hidden mt-3 lg:mt-0 '>
+ <IconButton  onClick={handleToggleMenu}>
+<img src="/Icons/Menu.svg" alt=""  />
+ </IconButton>
+ </div>
+</nav>
   </div>
-<IconButton  onClick={()=>dispatch(ToggleCart())}>
-<img src={`/Logo/${atHome?"Cart.svg":"Cart-black.svg"}`} />
-{CartList.length>0&&
 
-  <p className='Notify'>{CartList.length}</p>
-}
-</IconButton>
-<IconButton>
-
-<img src={`/Logo/User-black.svg`}/>
-</IconButton>
-
-</div>
-<IconButton onClick={()=>handleToggle()} className='z-50'>
-{
-  isToggled?
-  
-  <MenuIcon className={`text-black z-50`} />:<CloseIcon className={`text-white z-50` } />
-}
-
-
-</IconButton>
-</div>}
-
-</div>
   )
 }
 

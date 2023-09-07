@@ -182,7 +182,7 @@ Unit:[
       {UnitId:3,id:3,price:44.99, qty:1,name:"Speakers",img:"/Images/Product-img/Speaker.png"},
     ]
     },
-  {Id:4,
+ /*  {Id:4,
     Category:"Our Product",
     Unit:[
     
@@ -286,34 +286,23 @@ Unit:[
     ,
    
     ]
-    },
+    }, */
  
 ]
 
 const States=JSON.parse(localStorage.getItem("State"))
-
+console.log(States)
    
 export const productSlice = createSlice({
    name: 'product',
-  initialState:States!==null?{
-   
-    ItemList: States.ItemList,
-      OrderList:States.OrderList,
-      CartDisplay:"Cart_Off",
-      CartList:States.CartList,
-      Modal:"-top-20",
-      ToggleTxt:"Item added to Cart",
-      Visited:false
-      
-      
-    } :{
+  initialState:States?States:{
       
       ItemList: DataBase,
       OrderList:[
         
         
       ],
-      CartDisplay:"Cart_Off",
+      CartDisplay:false,
       CartList:[
         
       ],
@@ -335,13 +324,9 @@ if(state.Modal==="-top-20"){
 }
     },
     ToggleCart:(state)=>{
-    if(state.CartDisplay==="Cart_Off"){
-      state.CartDisplay="Cart_On"
-    }
-    else{
-      state.CartDisplay="Cart_Off"
-      
-    }
+   
+      state.CartDisplay=!state.CartDisplay
+      console.log(state.CartDisplay)
     
     localStorage.setItem("State",JSON.stringify(state))
     return
@@ -351,7 +336,7 @@ if(state.Modal==="-top-20"){
      const isIncluded = state.CartList.some(obj=>JSON.stringify(obj)===JSON.stringify(action.payload))
   
      if(isIncluded){
-       let newList=  state.ItemList.filter(itm=>itm.Id===action.payload.UnitId)
+       const newList=  state.ItemList.filter(itm=>itm.Id===action.payload.UnitId)
     
     const SingleItem= newList[0].Unit.map((item)=>{
         if(item.id===action.payload.id){
@@ -371,7 +356,7 @@ if(state.Modal==="-top-20"){
        })
        
         
-          let ItemList =state.ItemList.map((Itm)=>{
+       const ItemList =state.ItemList.map((Itm)=>{
         if(Itm.Id===action.payload.UnitId){
           return {...Itm,Unit:SingleItem}
         }

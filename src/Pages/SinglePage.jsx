@@ -32,8 +32,6 @@ const addedItem=()=>{
 }
 const Select=(itm)=>{
   
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
   setImage(itm.img)
 }
 const ItemList =useSelector((state)=>state.product.ItemList)

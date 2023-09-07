@@ -14,46 +14,10 @@ const Products = () => {
   const ItemList =useSelector((state)=>state.product.ItemList)
   const swiperRef = useRef(null);
 
-/*   useEffect(() => {
-    const swiper = swiperRef.current?.swiper;
-    const interval =5000; // Set the interval for auto-scroll in milliseconds (e.g., 3 seconds).
 
-    const autoScroll = () => {
-      swiper.slideNext(700); 
-      
-      
-    };
-
-   let autoScrollInterval = setInterval(autoScroll, interval);
-
-    // Pause auto-scrolling when the user interacts with the swiper.
-    swiper.el.addEventListener('mouseover', () => {
-      clearInterval(autoScrollInterval);
-    });
-
-    // Resume auto-scrolling when the user stops interacting with the swiper.
-    swiper.el.addEventListener('mouseleave', () => {
-      clearInterval(autoScrollInterval);
-      autoScrollInterval = setInterval(autoScroll, interval);
-    });
-
-    return () => {
-      clearInterval(autoScrollInterval);
-    };
-  }, []); */
   return (
     <div className=' Products  '>
-     {/*  
-      <Swiper   slidesPerView={1}
-       loop={true}
-        pagination={{
-          clickable: true,
-        }} modules={[Pagination]} className="mySwiper " ref={swiperRef}>
-        <SwiperSlide><BigProduct Img={"/Images/Big_Banner.png"}/></SwiperSlide>
-        <SwiperSlide><BigProduct Img={"/Images/Big_Banner_2.jpg"}/></SwiperSlide>
-        <SwiperSlide><BigProduct Img={"/Images/Big_Baner_3.jpg"}/></SwiperSlide>
-      </Swiper> */}
-
+   
   
       
 <div className='mt-0'>
